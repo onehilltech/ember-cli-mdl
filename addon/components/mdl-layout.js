@@ -9,6 +9,7 @@ export default Component.extend({
   classNameBindings: [
     'fixedDrawer:mdl-layout--fixed-drawer',
     'fixedHeader:mdl-layout--fixed-header',
+    'fixedTabs:mdl-layout--fixed-tabs',
     'noDrawerButton:mdl-layout--no-drawer-button',
     'noDesktopDrawerButton:mdl-layout--no-desktop-drawer-button'
   ]
