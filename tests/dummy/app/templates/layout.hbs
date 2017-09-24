@@ -1,10 +1,19 @@
 {{#mdl-layout}}
   {{#mdl-layout-header}}
     {{#mdl-layout-header-row}}
+      <!-- Title -->
       {{#mdl-layout-title}}Title{{/mdl-layout-title}}
 
+      <!-- Add spacer, to align navigation to the right -->
       {{mdl-layout-spacer}}
 
+      <!-- Navigation -->
+      {{#mdl-navigation}}
+        {{#mdl-navigation-link "layout"}}Link{{/mdl-navigation-link}}
+        {{#mdl-navigation-link "layout"}}Link{{/mdl-navigation-link}}
+        {{#mdl-navigation-link "layout"}}Link{{/mdl-navigation-link}}
+        {{#mdl-navigation-link "layout"}}Link{{/mdl-navigation-link}}
+      {{/mdl-navigation}}
     {{/mdl-layout-header-row}}
   {{/mdl-layout-header}}
 {{/mdl-layout}}
