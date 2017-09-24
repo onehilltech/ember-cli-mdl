@@ -1,32 +1,49 @@
 <!-- Simple header with fixed tabs. -->
 {{#mdl-layout fixedHeader=true fixedTabs=true}}
-    {{#mdl-layout-header}}
-      {{#mdl-layout-header-row}}
-        {{#mdl-layout-title}}Title{{/mdl-layout-title}}
-      {{/mdl-layout-header-row}}
-
-      {{#mdl-layout-tab-bar}}
-        {{#mdl-layout-tab href="#fixed-tab-1" isActive=true}}Tab 1{{/mdl-layout-tab}}
-        {{#mdl-layout-tab href="#fixed-tab-2"}}Tab 2{{/mdl-layout-tab}}
-        {{#mdl-layout-tab href="#fixed-tab-3"}}Tab 3{{/mdl-layout-tab}}
-      {{/mdl-layout-tab-bar}}
-    {{/mdl-layout-header}}
-
-    {{#mdl-layout-drawer}}
+  {{#mdl-layout-header}}
+    {{#mdl-layout-header-row}}
       {{#mdl-layout-title}}Title{{/mdl-layout-title}}
-    {{/mdl-layout-drawer}}
+    {{/mdl-layout-header-row}}
+  {{/mdl-layout-header}}
 
-    {{#mdl-layout-content}}
-      {{#mdl-layout-tab-panel id="fixed-tab-1" isActive=true}}
-        <div class="page-content">Panel 1 content</div>
-      {{/mdl-layout-tab-panel}}
+  {{#mdl-layout-drawer}}
+    {{#mdl-layout-title}}Title{{/mdl-layout-title}}
+  {{/mdl-layout-drawer}}
 
-      {{#mdl-layout-tab-panel id="fixed-tab-2"}}
-        <div class="page-content">Panel 2 content</div>
-      {{/mdl-layout-tab-panel}}
+  {{#mdl-layout-content}}
+    <div class="mdl-grid-demo">
+      {{#mdl-grid}}
+        {{#mdl-cell columns=1}}1{{/mdl-cell}}
+        {{#mdl-cell columns=1}}1{{/mdl-cell}}
+        {{#mdl-cell columns=1}}1{{/mdl-cell}}
+        {{#mdl-cell columns=1}}1{{/mdl-cell}}
+        {{#mdl-cell columns=1}}1{{/mdl-cell}}
+        {{#mdl-cell columns=1}}1{{/mdl-cell}}
+        {{#mdl-cell columns=1}}1{{/mdl-cell}}
+        {{#mdl-cell columns=1}}1{{/mdl-cell}}
+        {{#mdl-cell columns=1}}1{{/mdl-cell}}
+        {{#mdl-cell columns=1}}1{{/mdl-cell}}
+        {{#mdl-cell columns=1}}1{{/mdl-cell}}
+        {{#mdl-cell columns=1}}1{{/mdl-cell}}
+      {{/mdl-grid}}
 
-      {{#mdl-layout-tab-panel id="fixed-tab-3"}}
-        <div class="page-content">Panel 3 content</div>
-      {{/mdl-layout-tab-panel}}
-    {{/mdl-layout-content}}
-  {{/mdl-layout}}
+      {{#mdl-grid}}
+        {{#mdl-cell columns=4}}4{{/mdl-cell}}
+        {{#mdl-cell columns=4}}4{{/mdl-cell}}
+        {{#mdl-cell columns=4}}4{{/mdl-cell}}
+      {{/mdl-grid}}
+
+      {{#mdl-grid}}
+        {{#mdl-cell columns=6}}6{{/mdl-cell}}
+        {{#mdl-cell columns=4}}4{{/mdl-cell}}
+        {{#mdl-cell columns=2}}2{{/mdl-cell}}
+      {{/mdl-grid}}
+
+      {{#mdl-grid}}
+        {{#mdl-cell columns=6 tabletColumns=8}}6 (8 tablet){{/mdl-cell}}
+        {{#mdl-cell columns=4 tabletColumns=6}}4 (6 tablet){{/mdl-cell}}
+        {{#mdl-cell columns=2 phoneColumns=4}}2 (4 phone){{/mdl-cell}}
+      {{/mdl-grid}}
+    </div>
+  {{/mdl-layout-content}}
+{{/mdl-layout}}
