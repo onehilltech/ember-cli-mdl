@@ -1,36 +1,32 @@
-{{#mdl-layout fixedHeader=true}}
-  {{#mdl-layout-header}}
-    {{#mdl-layout-header-row}}
-      <!-- Title -->
+<!-- Simple header with fixed tabs. -->
+{{#mdl-layout fixedHeader=true fixedTabs=true}}
+    {{#mdl-layout-header}}
+      {{#mdl-layout-header-row}}
+        {{#mdl-layout-title}}Title{{/mdl-layout-title}}
+      {{/mdl-layout-header-row}}
+
+      {{#mdl-layout-tab-bar}}
+        {{#mdl-layout-tab href="#fixed-tab-1" isActive=true}}Tab 1{{/mdl-layout-tab}}
+        {{#mdl-layout-tab href="#fixed-tab-2"}}Tab 2{{/mdl-layout-tab}}
+        {{#mdl-layout-tab href="#fixed-tab-3"}}Tab 3{{/mdl-layout-tab}}
+      {{/mdl-layout-tab-bar}}
+    {{/mdl-layout-header}}
+
+    {{#mdl-layout-drawer}}
       {{#mdl-layout-title}}Title{{/mdl-layout-title}}
+    {{/mdl-layout-drawer}}
 
-      <!-- Add spacer, to align navigation to the right -->
-      {{mdl-layout-spacer}}
+    {{#mdl-layout-content}}
+      {{#mdl-layout-tab-panel id="fixed-tab-1" isActive=true}}
+        <div class="page-content">Panel 1 content</div>
+      {{/mdl-layout-tab-panel}}
 
-      <!-- Navigation -->
-      {{#mdl-navigation}}
-        {{#mdl-navigation-link "layout"}}Link{{/mdl-navigation-link}}
-        {{#mdl-navigation-link "layout"}}Link{{/mdl-navigation-link}}
-        {{#mdl-navigation-link "layout"}}Link{{/mdl-navigation-link}}
-        {{#mdl-navigation-link "layout"}}Link{{/mdl-navigation-link}}
-      {{/mdl-navigation}}
-    {{/mdl-layout-header-row}}
-  {{/mdl-layout-header}}
+      {{#mdl-layout-tab-panel id="fixed-tab-2"}}
+        <div class="page-content">Panel 2 content</div>
+      {{/mdl-layout-tab-panel}}
 
-  {{#mdl-layout-drawer}}
-    <!-- Title -->
-    {{#mdl-layout-title}}Title{{/mdl-layout-title}}
-
-    <!-- Navigation -->
-    {{#mdl-navigation}}
-      {{#mdl-navigation-link "layout"}}Link{{/mdl-navigation-link}}
-      {{#mdl-navigation-link "layout"}}Link{{/mdl-navigation-link}}
-      {{#mdl-navigation-link "layout"}}Link{{/mdl-navigation-link}}
-      {{#mdl-navigation-link "layout"}}Link{{/mdl-navigation-link}}
-    {{/mdl-navigation}}
-  {{/mdl-layout-drawer}}
-
-  {{#mdl-layout-content}}
-
-  {{/mdl-layout-content}}
-{{/mdl-layout}}
+      {{#mdl-layout-tab-panel id="fixed-tab-3"}}
+        <div class="page-content">Panel 3 content</div>
+      {{/mdl-layout-tab-panel}}
+    {{/mdl-layout-content}}
+  {{/mdl-layout}}
