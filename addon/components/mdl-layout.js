@@ -6,5 +6,7 @@ export default Component.extend({
 
   classNames: ['mdl-layout', 'mdl-js-layout'],
 
-  classNameBindings: ['hasFixedDrawer:mdl-layout--fixed-drawer']
+  classNameBindings: [
+    'hasFixedDrawer:mdl-layout--fixed-drawer',
+    'hasFixedHeader:mdl-layout--fixed-header']
 });
