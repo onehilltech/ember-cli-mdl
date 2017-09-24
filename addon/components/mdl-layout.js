@@ -4,5 +4,7 @@ import layout from '../templates/components/mdl-layout';
 export default Component.extend({
   layout,
 
-  classNames: ['mdl-layout', 'mdl-js-layout']
+  classNames: ['mdl-layout', 'mdl-js-layout'],
+
+  classNameBindings: ['hasFixedDrawer:mdl-layout--fixed-drawer']
 });
