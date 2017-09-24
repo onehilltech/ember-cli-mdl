@@ -7,6 +7,9 @@ export default Component.extend({
   classNames: ['mdl-layout', 'mdl-js-layout'],
 
   classNameBindings: [
-    'hasFixedDrawer:mdl-layout--fixed-drawer',
-    'hasFixedHeader:mdl-layout--fixed-header']
+    'fixedDrawer:mdl-layout--fixed-drawer',
+    'fixedHeader:mdl-layout--fixed-header',
+    'noDrawerButton:mdl-layout--no-drawer-button',
+    'noDesktopDrawerButton:mdl-layout--no-desktop-drawer-button'
+  ]
 });

@@ -8,7 +8,13 @@ export default Component.extend({
 
   classNames: ['mdl-layout__header'],
 
-  classNameBindings: ['isTransparent:mdl-layout__header--transparent'],
+  classNameBindings: [
+    'transparent:mdl-layout__header--transparent',
+    'waterfall:mdl-layout__header--waterfall',
+    'waterfallHideTop:mdl-layout__header--waterfall-hide-top',
+    'seamed:mdl-layout__header--seamed',
+    'scroll:mdl-layout__header--scroll'
+  ],
 
-  isTransparent: false,
+  transparent: false,
 });
