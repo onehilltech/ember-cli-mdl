@@ -13,7 +13,7 @@ export default Component.extend (RippleEffectMixin, {
   classNameBindings: [
     'colored:mdl-button--colored',
     'primary:mdl-button--primary',
-    'accept:mdl-button--accent',
+    'accent:mdl-button--accent',
     'typeClassName'
   ],
 
