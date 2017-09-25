@@ -14,9 +14,10 @@ export default Component.extend (RippleEffectMixin, {
     'colored:mdl-button--colored',
     'primary:mdl-button--primary',
     'accent:mdl-button--accent',
-    'typeClassName',
-    'isEnabled::disabled'
+    'typeClassName'
   ],
+
+  attributeBindings: ['disabled'],
 
   typeClassName: Ember.computed ('type', function () {
     return `mdl-button--${this.get ('type')}`;
@@ -26,7 +27,5 @@ export default Component.extend (RippleEffectMixin, {
   type: 'raised',
 
   /// By default, the buttons have a ripple effect.
-  rippleEffect: true,
-
-  isEnabled: true
+  rippleEffect: true
 });
