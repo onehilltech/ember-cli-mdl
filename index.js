@@ -2,7 +2,7 @@
 'use strict';
 
 module.exports = {
-  name: 'ember-cli-material-design-lite',
+  name: 'ember-cli-mdl',
 
   included: function (app) {
     this._super.included.apply (this, arguments);

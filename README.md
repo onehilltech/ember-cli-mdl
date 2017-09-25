@@ -1,11 +1,11 @@
-# ember-cli-material-design-lite
+# ember-cli-mdl
 
 This README outlines the details of collaborating on this Ember addon.
 
 ## Installation
 
 * `git clone <repository-url>` this repository
-* `cd ember-cli-material-design-lite`
+* `cd ember-cli-mdl`
 * `npm install`
 
 ## Running

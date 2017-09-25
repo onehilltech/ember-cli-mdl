@@ -1,49 +1,44 @@
-<!-- Simple header with fixed tabs. -->
-{{#mdl-layout fixedHeader=true fixedTabs=true}}
-  {{#mdl-layout-header}}
-    {{#mdl-layout-header-row}}
-      {{#mdl-layout-title}}Title{{/mdl-layout-title}}
-    {{/mdl-layout-header-row}}
-  {{/mdl-layout-header}}
+{{#mdl-tabs rippleEffect=true}}
+  {{#mdl-tabs-tab-bar}}
+    {{#mdl-tabs-tab href="#starks-panel" isActive=true}}Starks{{/mdl-tabs-tab}}
+    {{#mdl-tabs-tab href="#lannisters-panel"}}Lannisters{{/mdl-tabs-tab}}
+    {{#mdl-tabs-tab href="#targaryens-panel"}}Targaryens{{/mdl-tabs-tab}}
+  {{/mdl-tabs-tab-bar}}
 
-  {{#mdl-layout-drawer}}
-    {{#mdl-layout-title}}Title{{/mdl-layout-title}}
-  {{/mdl-layout-drawer}}
+  {{#mdl-tabs-panel id="starks-panel" isActive=true}}
+    <ul>
+      <li>Eddard</li>
+      <li>Catelyn</li>
+      <li>Robb</li>
+      <li>Sansa</li>
+      <li>Brandon</li>
+      <li>Arya</li>
+      <li>Rickon</li>
+    </ul>
+  {{/mdl-tabs-panel}}
 
-  {{#mdl-layout-content}}
-    <div class="mdl-grid-demo">
-      {{#mdl-grid}}
-        {{#mdl-cell columns=1}}1{{/mdl-cell}}
-        {{#mdl-cell columns=1}}1{{/mdl-cell}}
-        {{#mdl-cell columns=1}}1{{/mdl-cell}}
-        {{#mdl-cell columns=1}}1{{/mdl-cell}}
-        {{#mdl-cell columns=1}}1{{/mdl-cell}}
-        {{#mdl-cell columns=1}}1{{/mdl-cell}}
-        {{#mdl-cell columns=1}}1{{/mdl-cell}}
-        {{#mdl-cell columns=1}}1{{/mdl-cell}}
-        {{#mdl-cell columns=1}}1{{/mdl-cell}}
-        {{#mdl-cell columns=1}}1{{/mdl-cell}}
-        {{#mdl-cell columns=1}}1{{/mdl-cell}}
-        {{#mdl-cell columns=1}}1{{/mdl-cell}}
-      {{/mdl-grid}}
+  {{#mdl-tabs-panel}}
+    <ul>
+      <li>Tywin</li>
+      <li>Cersei</li>
+      <li>Jamie</li>
+      <li>Tyrion</li>
+    </ul>
+  {{/mdl-tabs-panel}}
 
-      {{#mdl-grid}}
-        {{#mdl-cell columns=4}}4{{/mdl-cell}}
-        {{#mdl-cell columns=4}}4{{/mdl-cell}}
-        {{#mdl-cell columns=4}}4{{/mdl-cell}}
-      {{/mdl-grid}}
+  {{#mdl-tabs-panel id="lannisters-panel"}}
+    <ul>
+      <li>Tywin</li>
+      <li>Cersei</li>
+      <li>Jamie</li>
+      <li>Tyrion</li>
+    </ul>
+  {{/mdl-tabs-panel}}
 
-      {{#mdl-grid}}
-        {{#mdl-cell columns=6}}6{{/mdl-cell}}
-        {{#mdl-cell columns=4}}4{{/mdl-cell}}
-        {{#mdl-cell columns=2}}2{{/mdl-cell}}
-      {{/mdl-grid}}
-
-      {{#mdl-grid}}
-        {{#mdl-cell columns=6 tabletColumns=8}}6 (8 tablet){{/mdl-cell}}
-        {{#mdl-cell columns=4 tabletColumns=6}}4 (6 tablet){{/mdl-cell}}
-        {{#mdl-cell columns=2 phoneColumns=4}}2 (4 phone){{/mdl-cell}}
-      {{/mdl-grid}}
-    </div>
-  {{/mdl-layout-content}}
-{{/mdl-layout}}
+  {{#mdl-tabs-panel id="targaryens-panel"}}
+    <ul>
+      <li>Viserys</li>
+      <li>Daenerys</li>
+    </ul>
+  {{/mdl-tabs-panel}}
+{{/mdl-tabs}}

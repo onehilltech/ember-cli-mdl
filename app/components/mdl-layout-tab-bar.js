@@ -1,1 +1,1 @@
-export { default } from 'ember-cli-material-design-lite/components/mdl-layout-tab-bar';
+export { default } from 'ember-cli-mdl/components/mdl-layout-tab-bar';

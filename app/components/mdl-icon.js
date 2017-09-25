@@ -1,1 +1,1 @@
-export { default } from 'ember-cli-material-design-lite/components/mdl-icon';
+export { default } from 'ember-cli-mdl/components/mdl-icon';

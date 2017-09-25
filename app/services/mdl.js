@@ -1,1 +1,1 @@
-export { default } from 'ember-cli-material-design-lite/services/mdl';
+export { default } from 'ember-cli-mdl/services/mdl';

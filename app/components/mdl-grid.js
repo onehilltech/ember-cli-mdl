@@ -1,1 +1,1 @@
-export { default } from 'ember-cli-material-design-lite/components/mdl-grid';
+export { default } from 'ember-cli-mdl/components/mdl-grid';

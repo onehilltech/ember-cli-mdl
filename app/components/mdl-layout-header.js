@@ -1,1 +1,1 @@
-export { default } from 'ember-cli-material-design-lite/components/mdl-layout-header';
+export { default } from 'ember-cli-mdl/components/mdl-layout-header';
