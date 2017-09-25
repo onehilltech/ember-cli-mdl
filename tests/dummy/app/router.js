@@ -10,6 +10,7 @@ Router.map(function() {
   this.route('layout');
   this.route('badges');
   this.route('buttons');
+  this.route('cards');
 });
 
 export default Router;
