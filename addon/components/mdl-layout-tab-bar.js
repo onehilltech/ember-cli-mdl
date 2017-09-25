@@ -5,5 +5,6 @@ export default Component.extend({
   layout,
 
   classNames: ['mdl-layout__tab-bar'],
-  classNameBindings: ['isTabManualSwitch:mdl-layout__tab-manual-switch']
+
+  classNameBindings: ['isTabManualSwitch:mdl-layout__tab-manual-switch'],
 });

@@ -5,7 +5,10 @@ export default Component.extend({
   layout,
 
   tagName: 'a',
+
   classNames: ['mdl-layout__tab'],
+
   classNameBindings: ['isActive'],
+
   attributeBindings: ['href']
 });
