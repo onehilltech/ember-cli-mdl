@@ -11,5 +11,10 @@ export default Ember.Component.extend ({
     this._super (...arguments);
 
     this.get ('mdl').upgradeElement (this.element);
+  },
+
+  willDestroyElement () {
+    this._super (...arguments);
+    this.get ('mdl').downgradeElements (this.element);
   }
 });
