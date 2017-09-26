@@ -12,5 +12,7 @@ export default Component.extend({
 
   shadowClassName: Ember.computed ('shadow', function () {
     return `mdl-shadow--${this.get ('shadow')}dp`;
-  })
+  }),
+
+  shadow: 2
 });

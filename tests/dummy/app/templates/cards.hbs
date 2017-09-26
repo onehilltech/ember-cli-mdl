@@ -1,6 +1,6 @@
 <div class="mdl-card-demo">
-  {{#mdl-card shadow=2}}
-    {{#mdl-card-title style="background; url(https://getmdl.io/assets/demos/welcome_card.jpg)"}}
+  {{#mdl-card}}
+    {{#mdl-card-title expand=true}}
       {{#mdl-card-title-text}}Welcome{{/mdl-card-title-text}}
     {{/mdl-card-title}}
 
@@ -16,5 +16,14 @@
     {{#mdl-card-menu}}
       {{#mdl-button type="icon" rippleEffect=true}}{{mdl-icon icon="share"}}{{/mdl-button}}
     {{/mdl-card-menu}}
+  {{/mdl-card}}
+</div>
+
+<div class="demo-card-image">
+  {{#mdl-card}}
+    {{#mdl-card-title expand=true}}{{/mdl-card-title}}
+    {{#mdl-card-actions}}
+      <span class="demo-card-image__filename">Image.jpg</span>
+    {{/mdl-card-actions}}
   {{/mdl-card}}
 </div>
