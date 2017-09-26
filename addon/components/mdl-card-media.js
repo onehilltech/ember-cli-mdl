@@ -1,7 +1,7 @@
-import Ember from 'ember';
+import Component from '../-private/component';
 import layout from '../templates/components/mdl-card-media';
 
-export default Ember.Component.extend({
+export default Component.extend({
   layout,
 
   classNames: ['mdl-card__media']
