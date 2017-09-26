@@ -14,6 +14,7 @@ Router.map(function() {
   this.route('badges');
   this.route('buttons');
   this.route('cards');
+  this.route('lists');
 });
 
 export default Router;
