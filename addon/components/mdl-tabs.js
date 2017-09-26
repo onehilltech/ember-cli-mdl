@@ -1,6 +1,6 @@
 import Component from '../-private/component';
 import TabsMixin from '../-private/mixins/tabs';
-import RippleEffectMixin from '../-private/mixins/ripple-effect-mixin';
+import RippleEffectMixin from '../-private/mixins/ripple-effect';
 
 import layout from '../templates/components/mdl-tabs';
 

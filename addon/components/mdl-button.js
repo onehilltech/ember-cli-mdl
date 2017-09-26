@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 import Component from '../-private/component';
-import RippleEffectMixin from '../-private/mixins/ripple-effect-mixin';
+import RippleEffectMixin from '../-private/mixins/ripple-effect';
 import ButtonMixin from '../-private/mixins/button';
 
 import layout from '../templates/components/mdl-button';
