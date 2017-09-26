@@ -1,5 +1,5 @@
 import Component from '../-private/component';
-import BadgeMixin from '../-private/mixins/badge-mixin';
+import BadgeMixin from '../-private/mixins/badge';
 import layout from '../templates/components/mdl-icon-badge';
 
 export default Component.extend (BadgeMixin, {
