@@ -1,0 +1,15 @@
+<form action="#" style="padding: 16px">
+  {{mdl-textfield label="Text..."
+                  required=true
+                  customError=customError
+                  placeholder="Name goes here"
+                  floatingLabel=true}}
+
+  {{mdl-textfield label="Text..." required=true floatingLabel=true}}
+
+  <div class="mdl-textfield mdl-js-textfield">
+    <input class="mdl-textfield__input" required id="user" pattern="[A-Z,a-z, ]*">
+    <label class="mdl-textfield__label" for="user">User name</label>
+    <span class="mdl-textfield__error">Letters and spaces only</span>
+  </div>
+</form>

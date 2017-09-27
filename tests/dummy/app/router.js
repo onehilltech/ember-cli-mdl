@@ -15,6 +15,7 @@ Router.map(function() {
   this.route('buttons');
   this.route('cards');
   this.route('lists');
+  this.route('textfield');
 });
 
 export default Router;
