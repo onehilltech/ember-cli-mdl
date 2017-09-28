@@ -12,7 +12,7 @@ export default Ember.Mixin.create ({
     let $wrapper = this.$().parent ();
 
     // Insert the radio label after the input tag (i.e., this element).
-    let $label = Ember.$(`<span class="${this.get ('labelClassName')}">${this.get ('label')}</span>`);
+    let $label = Ember.$(`<span class="${this.get ('labelClassName').join (' ')}">${this.get ('label')}</span>`);
     $label.insertAfter (this.$());
 
     this.setProperties ({$wrapper: $wrapper, $label: $label});

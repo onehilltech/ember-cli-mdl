@@ -1,6 +1,12 @@
 import Ember from 'ember';
-import layout from '../templates/components/mdl-icon-toggle';
+import ToggleSupportMixin from '../-private/mixins/toggle-support';
 
-export default Ember.Component.extend({
-  layout
+export default Ember.Checkbox.extend (ToggleSupportMixin, {
+  classNames: ['mdl-icon-toggle__input'],
+
+  wrapperClassNames: ['mdl-icon-toggle', 'mdl-js-icon-toggle'],
+
+  labelClassName: ['mdl-icon-toggle__label', 'material-icons'],
+
+  icon: Ember.computed.alias ('label')
 });
