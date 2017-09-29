@@ -10,6 +10,7 @@ Router.map(function() {
   this.route('layout', function() {
     this.route('tabs');
     this.route('layout');
+    this.route('toolbar');
   });
   this.route('badges');
   this.route('buttons');
