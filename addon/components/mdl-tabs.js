@@ -18,7 +18,7 @@ export default Component.extend (TabsMixin, RippleEffectMixin, {
 
   willUpdate () {
     this._super (...arguments);
-    this.willUpdate ();
+    this.willUpdateTabs ();
   },
 
   didUpdate () {
