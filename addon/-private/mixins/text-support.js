@@ -18,6 +18,8 @@ export default Ember.Mixin.create (InputMixin, {
 
   classNames: ['mdl-textfield__input'],
 
+  floatingLabel: true,
+
   didInsertElement () {
     this._super (...arguments);
     this.didInsertInputElement (...arguments);
