@@ -1,24 +1,17 @@
 {{#mdl-layout fixedHeader=true fixedTabs=true}}
   {{#mdl-layout-header}}
     {{#mdl-layout-header-row}}
-      {{#mdl-layout-title}}Title{{/mdl-layout-title}}
-    {{/mdl-layout-header-row}}
+      {{mdl-layout-spacer}}
 
-    {{#mdl-layout-tab-bar}}
-      {{#mdl-layout-tab isActive=true}}Tab 1{{/mdl-layout-tab}}
-      {{#mdl-layout-tab}}Tab 2{{/mdl-layout-tab}}
-      {{#mdl-layout-tab}}Tab 3{{/mdl-layout-tab}}
-    {{/mdl-layout-tab-bar}}
+      {{#mdl-navigation}}
+        {{#mdl-navigation-link "layout.tabs"}}Tabs{{/mdl-navigation-link}}
+        {{#mdl-navigation-link "layout.toolbar"}}Toolbar{{/mdl-navigation-link}}
+      {{/mdl-navigation}}
+    {{/mdl-layout-header-row}}
   {{/mdl-layout-header}}
 
   {{#mdl-layout-drawer}}
     {{#mdl-layout-title}}Title{{/mdl-layout-title}}
   {{/mdl-layout-drawer}}
 
-  {{#mdl-layout-content}}
-    {{#mdl-layout-tab-panel isActive=true}}Panel 1{{/mdl-layout-tab-panel}}
-    {{#mdl-layout-tab-panel}}Panel 2{{/mdl-layout-tab-panel}}
-    {{#mdl-layout-tab-panel}}Panel 3{{/mdl-layout-tab-panel}}
-    {{#mdl-layout-tab-panel}}Panel 4{{/mdl-layout-tab-panel}}
-  {{/mdl-layout-content}}
 {{/mdl-layout}}
