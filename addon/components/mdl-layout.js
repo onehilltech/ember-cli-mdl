@@ -25,6 +25,15 @@ export default Component.extend (TabsMixin, {
     this.didInsertTabs ();
   },
 
+  willDestroyElement () {
+    this._super (...arguments);
+
+    // Remove the wrapper layout class since downgrading the element
+    // will not remove the wrapper class that was added to make this
+    // component work.
+    this.$().unwrap ();
+  },
+
   willUpdate () {
     this._super (...arguments);
     this.willUpdateTabs ();
