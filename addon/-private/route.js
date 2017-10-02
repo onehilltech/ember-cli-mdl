@@ -16,6 +16,5 @@ export default Ember.Route.extend ({
     this._super (...arguments);
 
     Ember.$('body').removeClass (this.get ('classNameForRoute'));
-
   }
 })
