@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Route.extend ({
   classNameForRoute: Ember.computed ('routeName', function () {
-    let className = this.get ('routeName').dasherize ().replace (/[.|/]/, '-');
+    let className = this.get ('routeName').dasherize ().replace ('\\.', '-');
     return `mdl-route__${className}`;
   }),
 
