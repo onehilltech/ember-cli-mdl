@@ -4,7 +4,7 @@ import layout from '../templates/components/mdl-card-title-text';
 export default Component.extend({
   layout,
 
-  tagName: 'h2',
+  tagName: 'div',
 
   classNames: ['mdl-card__title-text']
 });
