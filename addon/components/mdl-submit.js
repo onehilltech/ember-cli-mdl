@@ -1,7 +1,8 @@
-import Ember from 'ember';
+import Component from '../-private/component';
+import ButtonMixin from '../-private/mixins/button';
 import layout from '../templates/components/mdl-submit';
 
-export default Ember.Component.extend({
+export default Component.extend (ButtonMixin, {
   layout,
 
   tagName: 'input',
