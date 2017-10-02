@@ -19,7 +19,19 @@ export default Ember.Mixin.create ({
 
     this._applyRippleEffect ();
 
-    this.get ('mdl').upgradeElement (this.element);
+    this.get ('mdl').upgradeElement ($wrapper[0]);
+  },
+
+  willDestroyElement () {
+    this._super (...arguments);
+    let {$wrapper, $label} = this.getProperties ('$wrapper', '$label');
+
+    // Downgrade the wrapper element, and delete the label element.
+    this.get ('mdl').downgradeElements ($wrapper[0]);
+    $label.remove ();
+
+    // Last, unwrap the current element.
+    this.$().unwrap ();
   },
 
   didUpdate () {
