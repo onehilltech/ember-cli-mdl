@@ -43,8 +43,17 @@ export default Ember.Mixin.create (InputMixin, {
     this.get ('mdl').upgradeElement ($wrapper[0]);
 
     // Initialize the invalid state.
-    let isInvalid = this.getWithDefault ('isInvalid', false);
-    $wrapper.toggleClass ('is-invalid', isInvalid);
+    $wrapper.toggleClass ('is-invalid', this.getWithDefault ('isInvalid', false));
+    $wrapper.toggleClass ('is-disabled', this.getWithDefault ('disabled', false));
+  },
+
+  didUpdateAttrs () {
+    this._super (...arguments);
+
+    let $wrapper = this.get ('$wrapper');
+
+    $wrapper.toggleClass ('is-disabled', this.getWithDefault ('disabled', false));
+    $wrapper.toggleClass ('is-invalid', this.getWithDefault ('isInvalid', false));
   },
 
   willDestroyElement () {
