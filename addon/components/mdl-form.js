@@ -6,6 +6,8 @@ export default Ember.Component.extend({
 
   tagName: 'form',
 
+  classNames: ['mdl-form'],
+
   didInsertElement () {
     this._super (...arguments);
 
