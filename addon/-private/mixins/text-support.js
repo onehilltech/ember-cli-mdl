@@ -25,7 +25,7 @@ export default Ember.Mixin.create (InputMixin, {
     this.didInsertInputElement (...arguments);
 
     // Insert the wrapper element for the input.
-    this.$ ().wrap (`<div class="${this.get ('wrapperClassNames')}"></div>`);
+    this.$ ().wrap (`<div class="mdl-textfield mdl-js-textfield"></div>`);
     let $wrapper = this.$().parent ();
 
     // Insert the label for the input.
@@ -42,18 +42,17 @@ export default Ember.Mixin.create (InputMixin, {
     // Now, upgrade the wrapper element.
     this.get ('mdl').upgradeElement ($wrapper[0]);
 
-    // Initialize the invalid state.
-    $wrapper.toggleClass ('is-invalid', this.getWithDefault ('isInvalid', false));
-    $wrapper.toggleClass ('is-disabled', this.getWithDefault ('disabled', false));
+    this._toggleWrapperClassNames ();
   },
 
   didUpdateAttrs () {
     this._super (...arguments);
+    this._toggleWrapperClassNames ();
+  },
 
-    let $wrapper = this.get ('$wrapper');
+  didUpdate () {
+    this._super (...arguments);
 
-    $wrapper.toggleClass ('is-disabled', this.getWithDefault ('disabled', false));
-    $wrapper.toggleClass ('is-invalid', this.getWithDefault ('isInvalid', false));
   },
 
   willDestroyElement () {
@@ -72,15 +71,17 @@ export default Ember.Mixin.create (InputMixin, {
 
     this.setProperties ({$wrapper: null, $label: null, $error: null});
   },
+  
+  _toggleWrapperClassNames () {
+    let $wrapper = this.get ('$wrapper');
 
-  wrapperClassNames: Ember.computed ('floatingLabel', function () {
-    let classNames = 'mdl-textfield mdl-js-textfield';
-
-    if (this.get ('floatingLabel'))
-      classNames += ' mdl-textfield--floating-label';
-
-    return classNames;
-  }),
+    $wrapper.toggleClass ('is-disabled', this.getWithDefault ('disabled', false));
+    $wrapper.toggleClass ('is-invalid', this.getWithDefault ('isInvalid', false));
+    $wrapper.toggleClass ('is-focused', this.getWithDefault ('isFocused', false));
+    $wrapper.toggleClass ('mdl-textfield--floating-label', this.getWithDefault ('floatingLabel', false));
+    $wrapper.toggleClass ('mdl-textfield--align-right', this.getWithDefault ('alignRight', false));
+    $wrapper.toggleClass ('mdl-textfield--full-width', this.getWithDefault ('fullWidth', false));
+  },
 
   setErrorMessage (message) {
     this.get ('$error').text (message);

@@ -1,0 +1,13 @@
+.mdl-textfield--expandable {
+  &.is-focused, &.is-dirty, &.is-invalid {
+    &.mdl-textfield--full-width {
+      width: calc(100% - 32px);
+    }
+  }
+}
+
+.mdl-textfield__expandable-holder {
+  .mdl-textfield.mdl-textfield--full-width.is-focused &, .mdl-textfield.mdl-textfield--full-width.is-dirty & {
+    width: 100%;
+  }
+}

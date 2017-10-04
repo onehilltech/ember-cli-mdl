@@ -1,11 +1,40 @@
-<form action="#" style="padding: 16px">
-  {{mdl-textfield label="Text..."
-                  required=true
-                  customError=customError
-                  placeholder="Name goes here"
-                  floatingLabel=true}}
+{{#mdl-layout}}
+  {{mdl-toolbar title="Textfields" navigateUpTo="layout"}}
 
-  {{mdl-textfield label="Text..." required=true floatingLabel=true}}
+  {{#mdl-layout-content}}
+    <div style="padding: 16px; position: relative">
+      {{#mdl-form action="#" style="padding: 16px"}}
+        {{mdl-textfield label="Text..."
+                        required=true
+                        fullWidth=true
+                        customError=customError
+                        placeholder="Name goes here"
+                        floatingLabel=true}}
 
-  {{mdl-textarea rows=5 label="Notes" floatingLabel=true required=true}}
-</form>
+        {{mdl-textfield label="Text..."
+                        required=true
+                        floatingLabel=true
+                        fullWidth=true}}
+
+        <div>
+          {{mdl-textfield label="Expandable text field"
+                          required=true
+                          floatingLabel=true
+                          expandable=true
+                          expandableIcon="search"}}
+        </div>
+
+        <div>
+          {{mdl-textfield label="Full width expandable text field"
+                          required=true
+                          floatingLabel=true
+                          fullWidth=true
+                          expandable=true
+                          expandableIcon="search"}}
+        </div>
+
+        {{mdl-textarea rows=5 label="Notes" floatingLabel=true required=true}}
+      {{/mdl-form}}
+    </div>
+  {{/mdl-layout-content}}
+{{/mdl-layout}}
