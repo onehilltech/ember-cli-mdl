@@ -22,7 +22,6 @@ export default Ember.Mixin.create (InputMixin, {
 
   didInsertElement () {
     this._super (...arguments);
-    this.didInsertInputElement (...arguments);
 
     // Insert the wrapper element for the input.
     this.$ ().wrap (`<div class="mdl-textfield mdl-js-textfield"></div>`);
@@ -40,9 +39,17 @@ export default Ember.Mixin.create (InputMixin, {
     this.setProperties ({$wrapper: $wrapper, $error: $error, $label: $label});
 
     // Now, upgrade the wrapper element.
+    this._toggleWrapperClassNames ();
+
     this.get ('mdl').upgradeElement ($wrapper[0]);
 
-    this._toggleWrapperClassNames ();
+    // If the element is required and the validity is value missing, then
+    // we need to remove the is-invalid class from the element because input
+    // has just been rendered. We should not worry about validity until the
+    // input is dirty.
+    if (this.element.required && this.element.validity.valueMissing) {
+      $wrapper.removeClass ('is-invalid');
+    }
   },
 
   didUpdateAttrs () {
@@ -76,7 +83,7 @@ export default Ember.Mixin.create (InputMixin, {
     let $wrapper = this.get ('$wrapper');
 
     $wrapper.toggleClass ('is-disabled', this.getWithDefault ('disabled', false));
-    $wrapper.toggleClass ('is-invalid', this.getWithDefault ('isInvalid', false));
+    //$wrapper.toggleClass ('is-invalid', this.getWithDefault ('isInvalid', false));
     $wrapper.toggleClass ('is-focused', this.getWithDefault ('isFocused', false));
     $wrapper.toggleClass ('mdl-textfield--floating-label', this.getWithDefault ('floatingLabel', false));
     $wrapper.toggleClass ('mdl-textfield--align-right', this.getWithDefault ('alignRight', false));

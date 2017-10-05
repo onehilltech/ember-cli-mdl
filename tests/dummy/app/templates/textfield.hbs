@@ -11,14 +11,13 @@
                         placeholder="Name goes here"
                         floatingLabel=true}}
 
-        {{mdl-textfield label="Text..."
+        {{!-- mdl-textfield label="Text..."
                         required=true
                         floatingLabel=true
                         fullWidth=true}}
 
         <div>
           {{mdl-textfield label="Expandable text field"
-                          required=true
                           floatingLabel=true
                           expandable=true
                           expandableIcon="search"}}
@@ -26,9 +25,25 @@
 
         <div>
           {{mdl-textfield label="Full width expandable text field"
-                          required=true
                           floatingLabel=true
                           fullWidth=true
+                          expandable=true
+                          expandableIcon="search"}}
+        </div>
+
+        <div>
+          {{mdl-textfield label="Right-aligned expandable text field"
+                          floatingLabel=true
+                          alignRight=true
+                          expandable=true
+                          expandableIcon="search"}}
+        </div>
+
+        <div>
+          {{mdl-textfield label="Full width right-aligned expandable text field"
+                          floatingLabel=true
+                          fullWidth=true
+                          alignRight=true
                           expandable=true
                           expandableIcon="search"}}
         </div>
@@ -36,7 +51,7 @@
         {{mdl-textarea rows=5 label="Notes"
                        floatingLabel=true
                        fullWidth=true
-                       required=true}}
+                       required=true --}}
       {{/mdl-form}}
     </div>
   {{/mdl-layout-content}}
