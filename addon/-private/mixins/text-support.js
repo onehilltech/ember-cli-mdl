@@ -57,11 +57,6 @@ export default Ember.Mixin.create (InputMixin, {
     this._toggleWrapperClassNames ();
   },
 
-  didUpdate () {
-    this._super (...arguments);
-
-  },
-
   willDestroyElement () {
     this._super (...arguments);
 

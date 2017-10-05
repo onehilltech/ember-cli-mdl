@@ -23,6 +23,14 @@ module.exports = {
     app.import (app.bowerDirectory + '/material-design-icons/iconfont/MaterialIcons-Regular.tff', {destDir: 'assets/fonts/material-design-icons'});
     app.import (app.bowerDirectory + '/material-design-icons/iconfont/MaterialIcons-Regular.woff', {destDir: 'assets/fonts/material-design-icons'});
     app.import (app.bowerDirectory + '/material-design-icons/iconfont/MaterialIcons-Regular.woff2', {destDir: 'assets/fonts/material-design-icons'});
+
+    // select component
+    app.import ({
+      development: app.bowerDirectory + '/mdl-select-component/mdl-selectfield.css',
+      production : app.bowerDirectory + '/mdl-select-component/mdl-selectfield.min.css'
+    });
+
+    app.import ({production: app.bowerDirectory + '/mdl-select-component/mdl-selectfield.min.js'});
   },
 
   contentFor (type, config) {
