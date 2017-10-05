@@ -10,7 +10,10 @@ export default Component.extend({
 
   classNames: ['mdl-list__item'],
 
-  classNameBindings: ['linesClassName'],
+  classNameBindings: [
+    'border:mdl-list__item--border',
+    'linesClassName'
+  ],
 
   linesClassName: Ember.computed ('lines', function () {
     let lines = this.getWithDefault ('lines', 1);
