@@ -1,15 +1,27 @@
-{{#mdl-layout}}
-  {{mdl-toolbar title="Textfields" navigateUpTo="layout"}}
+{{#mdl-layout fixedHeader=true}}
+  {{#mdl-toolbar navigateUpTo="layout"}}
+    {{mdl-textfield label="Right-aligned expandable text field"
+                    value=search
+                    floatingLabel=true
+                    alignRight=true
+                    expandable=true
+                    autocomplete="off"
+                    placeholder="Name, pastor, city, etc."
+                    expandableIcon="search"}}
+
+  {{/mdl-toolbar}}
 
   {{#mdl-layout-content}}
     <div style="padding: 16px; position: relative">
       {{#mdl-form action="#" style="padding: 16px"}}
-        {{mdl-textfield label="Text..."
+
+
+        {{!-- mdl-textfield label="Text..."
                         required=true
                         fullWidth=true
                         customError=customError
                         placeholder="Name goes here"
-                        floatingLabel=true}}
+                        floatingLabel=true --}}
 
         {{!-- mdl-textfield label="Text..."
                         required=true

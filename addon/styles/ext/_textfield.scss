@@ -6,7 +6,12 @@
   }
 }
 
+
 .mdl-textfield__expandable-holder {
+  input {
+    outline: none;
+  }
+
   .mdl-textfield.mdl-textfield--full-width.is-focused &, .mdl-textfield.mdl-textfield--full-width.is-dirty & {
     width: 100%;
   }
