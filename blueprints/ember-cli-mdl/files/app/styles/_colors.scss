@@ -5,5 +5,10 @@
 //
 // User this file to customize the colors of material-lite-design.
 //
-//    $primary-color: red;
+//    $color-primary: "255,0,0";
+//    $color-primary: $palette-red-5000;
 //
+
+@import "color-definitions";
+
+
