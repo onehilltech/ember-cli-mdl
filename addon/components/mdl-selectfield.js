@@ -35,6 +35,8 @@ export default Ember.Component.extend({
   },
 
   _toggleWrapperClassNames () {
+    let $wrapper = this.get ('$wrapper');
+
     $wrapper.toggleClass ('mdl-selectfield--full-width', this.getWithDefault ('fullWidth', false));
   },
 

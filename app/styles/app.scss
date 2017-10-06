@@ -1,0 +1,45 @@
+.mdl-grid-demo {
+  .mdl-grid {
+    .mdl-cell {
+      background-color: #BDBDBD;
+      padding: 16px;
+      color: #FFFFFF;
+    }
+  }
+}
+
+.mdl-card-demo {
+  padding: 16px;
+
+  .mdl-card__title {
+    color: #fff;
+    height: 176px;
+    background: url('https://getmdl.io/assets/demos/welcome_card.jpg') center / cover;
+  }
+
+  .mdl-card__menu {
+    color: #fff;
+  }
+}
+
+.demo-card-image {
+  padding: 16px;
+
+  .mdl-card {
+    width: 256px;
+    height: 256px;
+    background: url('https://getmdl.io/assets/demos/image_card.jpg') center / cover;
+  }
+
+  .mdl-card  > .mdl-card__actions {
+    height: 52px;
+    padding: 16px;
+    background: rgba(0, 0, 0, 0.2);
+  }
+
+  .demo-card-image__filename {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+  }
+}

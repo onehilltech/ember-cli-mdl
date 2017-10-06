@@ -1,4 +1,5 @@
 import Component from '../-private/component';
+import Ember from 'ember';
 import layout from '../templates/components/mdl-list-item';
 
 const linesClassNames = [null, null, 'mdl-list__item--two-line', 'mdl-list__item--three-line'];

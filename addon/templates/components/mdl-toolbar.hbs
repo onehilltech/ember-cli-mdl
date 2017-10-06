@@ -1,21 +1,8 @@
-<!-- navigate up button -->
-{{#if navigateUpTo}}
-  {{#mdl-layout-icon}}
-    {{#if navigateUpToData}}
-      {{#link-to navigateUpTo navigateUpToData}}{{mdl-icon icon="arrow_back"}}{{/link-to}}
-    {{else}}
-      {{#link-to navigateUpTo}}{{mdl-icon icon="arrow_back"}}{{/link-to}}
-    {{/if}}
-  {{/mdl-layout-icon}}
-{{/if}}
+<!-- title -->
+{{#mdl-layout-title}}{{title}}{{/mdl-layout-title}}
 
-{{#mdl-layout-header-row}}
-  <!-- title -->
-  {{#mdl-layout-title}}{{title}}{{/mdl-layout-title}}
+<!-- force right alignment -->
+{{mdl-layout-spacer}}
 
-  <!-- force right alignment -->
-  {{mdl-layout-spacer}}
-
-  <!-- yield for the menu -->
-  {{yield}}
-{{/mdl-layout-header-row}}
+<!-- yield for the menu -->
+{{yield}}

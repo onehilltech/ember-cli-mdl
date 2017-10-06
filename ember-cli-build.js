@@ -8,7 +8,7 @@ module.exports = function(defaults) {
     sassOptions: {
       includePaths: [
         'bower_components/material-design-lite/src',
-        'app/styles'
+        'tests/dummy'
       ]
     }
   });
