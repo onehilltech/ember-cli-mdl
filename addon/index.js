@@ -20,6 +20,9 @@ import CardTitleTextComponent from './components/mdl-card-title-text';
 import LinkComponent from './-private/link-component';
 import ListItemComponent from './components/mdl-list-item';
 
+import NavigationComponent from './components/mdl-navigation';
+import NavigationLinkComponent from './components/mdl-navigation-link';
+
 import TextfieldComponent from './components/mdl-textfield';
 import TextareaComponent from './components/mdl-textarea';
 import ToolbarComponent from './components/mdl-toolbar';
@@ -41,6 +44,9 @@ let MaterialComponent = {
 
   ListItem: ListItemComponent,
   Link: LinkComponent,
+
+  Navigation: NavigationComponent,
+  NavigationLink: NavigationLinkComponent,
 
   Textarea: TextareaComponent,
   Textfield: TextfieldComponent,
