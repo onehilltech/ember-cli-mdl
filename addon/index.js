@@ -20,6 +20,10 @@ import CardTitleTextComponent from './components/mdl-card-title-text';
 import LinkComponent from './-private/link-component';
 import ListItemComponent from './components/mdl-list-item';
 
+import TextfieldComponent from './components/mdl-textfield';
+import TextareaComponent from './components/mdl-textarea';
+import ToolbarComponent from './components/mdl-toolbar';
+
 let MaterialComponent = {
   Badge: BadgeComponent,
   Button: ButtonComponent,
@@ -37,6 +41,11 @@ let MaterialComponent = {
 
   ListItem: ListItemComponent,
   Link: LinkComponent,
+
+  Textarea: TextareaComponent,
+  Textfield: TextfieldComponent,
+
+  Toolbar: ToolbarComponent,
 };
 
 export {MaterialComponent as Component};
