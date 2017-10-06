@@ -23,15 +23,8 @@ module.exports = {
     });
 
     // select component
-    app.import ({
-      development: app.bowerDirectory + '/mdl-select-component/mdl-selectfield.css',
-      production : app.bowerDirectory + '/mdl-select-component/mdl-selectfield.min.css'
-    });
-
-    app.import ({
-      development: app.bowerDirectory + '/mdl-select-component/mdl-selectfield.js',
-      production:  app.bowerDirectory + '/mdl-select-component/mdl-selectfield.min.js'
-    });
+    app.import (app.bowerDirectory + '/mdl-select-component/mdl-selectfield.min.css');
+    app.import (app.bowerDirectory + '/mdl-select-component/mdl-selectfield.min.js');
   },
 
   contentFor (type, config) {
