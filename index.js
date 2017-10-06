@@ -7,22 +7,20 @@ module.exports = {
   included: function (app) {
     this._super.included.apply (this, arguments);
 
-    // material-design-lite
-    app.import ({
-      development: app.bowerDirectory + '/material-design-lite/material.js',
-      production:  app.bowerDirectory + '/material-design-lite/material.min.js'
-    });
-
-    app.import ({
-      development: app.bowerDirectory + '/material-design-lite/material.css',
-      production:  app.bowerDirectory + '/material-design-lite/material.min.css'
-    });
-
     // material-design-icons
     app.import (app.bowerDirectory + '/material-design-icons/iconfont/MaterialIcons-Regular.eot', {destDir: 'assets/fonts/material-design-icons'});
     app.import (app.bowerDirectory + '/material-design-icons/iconfont/MaterialIcons-Regular.tff', {destDir: 'assets/fonts/material-design-icons'});
     app.import (app.bowerDirectory + '/material-design-icons/iconfont/MaterialIcons-Regular.woff', {destDir: 'assets/fonts/material-design-icons'});
     app.import (app.bowerDirectory + '/material-design-icons/iconfont/MaterialIcons-Regular.woff2', {destDir: 'assets/fonts/material-design-icons'});
+
+    // Only import the JavaScript file for material-design-lite since we
+    // build the stylesheets on-demand. This allows users to customize
+    // variables, such as colors, at build time.
+
+    app.import ({
+      development: app.bowerDirectory + '/material-design-lite/material.js',
+      production:  app.bowerDirectory + '/material-design-lite/material.min.js'
+    });
 
     // select component
     app.import ({
@@ -30,7 +28,10 @@ module.exports = {
       production : app.bowerDirectory + '/mdl-select-component/mdl-selectfield.min.css'
     });
 
-    app.import ({production: app.bowerDirectory + '/mdl-select-component/mdl-selectfield.min.js'});
+    app.import ({
+      development: app.bowerDirectory + '/mdl-select-component/mdl-selectfield.js',
+      production:  app.bowerDirectory + '/mdl-select-component/mdl-selectfield.min.js'
+    });
   },
 
   contentFor (type, config) {

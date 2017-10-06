@@ -1,3 +1,13 @@
+// import the custom colors
+@import "colors";
+
+// import the icons and fonts
 @import "materialize-design-icons";
 @import "roboto";
+
+// import the styles from material-design-lite
+@import "material-design-lite";
+@import "material-design-lite-grid";
+
+// import our extensions
 @import "mdl-ext";
