@@ -18,6 +18,7 @@ Router.map(function() {
   this.route('lists');
   this.route('textfield');
   this.route('toggles');
+  this.route('dialog');
 });
 
 export default Router;
