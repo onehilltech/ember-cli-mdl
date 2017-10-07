@@ -1,1 +1,7 @@
-{{yield}}
+{{#if (not floatingLabel)}}
+  <option value=""></option>
+{{/if}}
+
+{{#each options as |option|}}
+  <option value={{option.value}}>{{option.text}}</option>
+{{/each}}

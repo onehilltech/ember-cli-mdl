@@ -23,8 +23,8 @@ export default Ember.Component.extend({
     let $error = Ember.$('<span class="mdl-selectfield__error"></span>');
     $error.insertAfter ($label);
 
-    this._toggleWrapperClassNames ();
     this.setProperties ({ $wrapper: $wrapper, $label: $label, $error: $error });
+    this._toggleWrapperClassNames ();
 
     this.get ('mdl').upgradeElement ($wrapper[0]);
   },
