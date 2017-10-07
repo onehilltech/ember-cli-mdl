@@ -1,6 +1,9 @@
 import Ember from 'ember';
+import layout from '../templates/components/mdl-selectfield';
 
 export default Ember.Component.extend({
+  layout,
+
   mdl: Ember.inject.service (),
 
   tagName: 'select',
