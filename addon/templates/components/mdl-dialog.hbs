@@ -1,0 +1,23 @@
+{{#if title}}
+  {{#mdl-dialog-title}}{{title}}{{/mdl-dialog-title}}
+{{/if}}
+
+{{#mdl-dialog-content}}
+  {{yield}}
+{{/mdl-dialog-content}}
+
+{{#if hasButtons}}
+  {{#mdl-dialog-actions}}
+    {{#if hasPositiveButton}}
+      {{#mdl-dialog-button class="positive"}}{{positiveText}}{{/mdl-dialog-button}}
+    {{/if}}
+
+    {{#if hasNuetralButton}}
+      {{#mdl-dialog-button class="nuetral"}}{{neutralText}}{{/mdl-dialog-button}}
+    {{/if}}
+
+    {{#if hasNegativeButton}}
+      {{#mdl-dialog-button class="negative"}}{{negativeText}}{{/mdl-dialog-button}}
+    {{/if}}
+  {{/mdl-dialog-actions}}
+{{/if}}

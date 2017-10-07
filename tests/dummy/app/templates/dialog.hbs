@@ -1,0 +1,19 @@
+{{#mdl-layout fixedHeader=true}}
+  {{#mdl-layout-header}}
+    {{mdl-toolbar title="Dialog"}}
+  {{/mdl-layout-header}}
+
+  {{#mdl-layout-content}}
+    <div style="padding: 16px">
+      {{#mdl-button type="raised" click=(action "showConfirmDialog")}}Show Dialog{{/mdl-button}}
+    </div>
+  {{/mdl-layout-content}}
+{{/mdl-layout}}
+
+{{#mdl-dialog show=confirm
+              title="Allow data collection?"
+              positiveClick=(action "agree")
+              onClose=(action "agree")}}
+  <p>Allowing us to collect data will let us get you the information you want faster.</p>
+{{/mdl-dialog}}
+
