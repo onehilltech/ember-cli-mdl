@@ -43,33 +43,47 @@ export default Component.extend({
 
   onButtonClick (ev) {
     let $target = Ember.$(ev.target);
-    let dismiss = true;
+    let result = true;
 
     if ($target.hasClass ('positive')) {
       let positiveClick = this.get ('positiveClick');
 
       if (positiveClick) {
-        dismiss = positiveClick ();
+        result = positiveClick ();
       }
     }
     else if ($target.hasClass ('negative')) {
       let negativeClick = this.get ('negativeClick');
 
       if (negativeClick) {
-        dismiss = negativeClick ();
+        result = negativeClick ();
       }
     }
     else if ($target.hasClass ('neutral')) {
       let neutralClick = this.get ('neutralClick');
 
       if (neutralClick) {
-        dismiss = neutralClick ();
+        result = neutralClick ();
       }
     }
     else {
       // We need to throw an error here.
     }
 
-    this.set ('show', !dismiss);
+    this._handleResult (result);
+  },
+
+  _handleResult (result) {
+    if (result === undefined || result === null) {
+      // The user did not pass back a value. If the return value is undefined,
+      // then it is assumed the user wants the dialog to close.
+      this.set ('show', false);
+    }
+    else if ((result instanceof Ember.RSVP.Promise)) {
+      result.then (this._handleResult.bind (this));
+    }
+    else if (result === true) {
+      this.set ('show', false);
+    }
   }
 });
