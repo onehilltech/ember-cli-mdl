@@ -4,7 +4,7 @@ import layout from '../templates/components/mdl-dialog-title';
 export default Ember.Component.extend({
   layout,
 
-  tagName: 'h4',
+  tagName: 'div',
 
   classNames: ['mdl-dialog__title']
 });
