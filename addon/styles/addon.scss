@@ -1,9 +1,11 @@
-// import the custom colors
-@import "colors";
-
 // import the icons and fonts
 @import "materialize-design-icons";
 @import "roboto";
+
+// import variable and color definitions needed by material-design-lite.
+@import "overrides";
+@import "app-colors";
+@import "app-variables";
 
 // import the styles from material-design-lite
 @import "material-design-lite";

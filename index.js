@@ -22,6 +22,10 @@ module.exports = {
       production:  app.bowerDirectory + '/material-design-lite/material.min.js'
     });
 
+    app.import (app.bowerDirectory + '/material-design-lite/src/images/tick.svg', {destDir: '/assets/images'});
+    app.import (app.bowerDirectory + '/material-design-lite/src/images/tick-mask.svg', {destDir: '/assets/images'});
+    app.import (app.bowerDirectory + '/material-design-lite/src/images/buffer.svg', {destDir: '/assets/images'});
+
     // select component
     app.import (app.bowerDirectory + '/mdl-select-component/mdl-selectfield.min.css');
     app.import (app.bowerDirectory + '/mdl-select-component/mdl-selectfield.min.js');
