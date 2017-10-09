@@ -1,0 +1,44 @@
+{{#mdl-layout fixedHeader=true}}
+  {{#mdl-layout-header}}
+    {{mdl-toolbar title="Progress Bar"}}
+  {{/mdl-layout-header}}
+
+  {{#mdl-layout-content}}
+    {{#mdl-grid}}
+      {{#mdl-cell columns=12}}
+        {{mdl-switch label="Indeterminate progress bar?" checked=indeterminate}}
+      {{/mdl-cell}}
+    {{/mdl-grid}}
+
+    {{#mdl-grid}}
+      {{#mdl-cell columns=6 phoneColumns=2}}
+        {{mdl-textfield label="Progess"
+                        floatingLabel=true
+                        fullWidth=true
+                        type="number"
+                        min="0"
+                        max="100"
+                        value=progress disabled=indeterminate}}
+      {{/mdl-cell}}
+
+      {{#mdl-cell columns=6 phoneColumns=2}}
+        {{mdl-textfield label="Buffer"
+                        floatingLabel=true
+                        fullWidth=true
+                        type="number"
+                        min="0"
+                        max="100"
+                        value=buffer disabled=indeterminate}}
+      {{/mdl-cell}}
+    {{/mdl-grid}}
+
+    {{#mdl-grid}}
+      {{#mdl-cell columns=12}}
+        {{mdl-progress-bar indeterminate=indeterminate progress=progress buffer=buffer}}
+      {{/mdl-cell}}
+    {{/mdl-grid}}
+
+
+  {{/mdl-layout-content}}
+{{/mdl-layout}}
+

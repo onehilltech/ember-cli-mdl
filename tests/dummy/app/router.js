@@ -19,6 +19,10 @@ Router.map(function() {
   this.route('textfield');
   this.route('toggles');
   this.route('dialog');
+
+  this.route('loading', function() {
+    this.route('progress');
+  });
 });
 
 export default Router;
