@@ -22,6 +22,7 @@ Router.map(function() {
 
   this.route('loading', function() {
     this.route('progress');
+    this.route('spinner');
   });
 });
 

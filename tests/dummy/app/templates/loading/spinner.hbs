@@ -1,0 +1,26 @@
+{{#mdl-layout fixedHeader=true}}
+  {{#mdl-layout-header}}
+    {{mdl-toolbar title="Spinner"}}
+  {{/mdl-layout-header}}
+
+  {{#mdl-layout-content}}
+    {{#mdl-grid}}
+      {{#mdl-cell columns=12}}
+        {{mdl-switch label="Active?" checked=active}}
+      {{/mdl-cell}}
+    {{/mdl-grid}}
+
+    {{#mdl-grid}}
+      {{#mdl-cell columns=6 phoneColumns=2}}
+        {{mdl-spinner isActive=active}}
+      {{/mdl-cell}}
+
+      {{#mdl-cell columns=6 phoneColumns=2}}
+        {{mdl-spinner isActive=active singleColor=true}}
+      {{/mdl-cell}}
+    {{/mdl-grid}}
+
+  {{/mdl-layout-content}}
+{{/mdl-layout}}
+
+{{outlet}}
