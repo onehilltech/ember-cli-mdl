@@ -1,0 +1,16 @@
+{{#mdl-layout fixedHeader=true}}
+  {{#mdl-layout-header}}
+    {{mdl-toolbar title="Snackbar"}}
+  {{/mdl-layout-header}}
+
+  {{#mdl-layout-content}}
+    <div style="padding: 16px">
+      {{#mdl-button type="raised" colored=true click=(action "showSnackbar")}}Show Snackbar{{/mdl-button}}
+    </div>
+
+  {{/mdl-layout-content}}
+{{/mdl-layout}}
+
+{{mdl-snackbar message=message action=(action "alert") actionText="Alert"}}
+
+
