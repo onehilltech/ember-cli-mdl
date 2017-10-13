@@ -25,6 +25,7 @@ Router.map(function() {
     this.route('spinner');
   });
   this.route('snackbar');
+  this.route('initial');
 });
 
 export default Router;

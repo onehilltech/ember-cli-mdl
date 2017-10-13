@@ -29,6 +29,9 @@ module.exports = {
     // select component
     app.import (app.bowerDirectory + '/mdl-select-component/mdl-selectfield.min.css');
     app.import (app.bowerDirectory + '/mdl-select-component/mdl-selectfield.min.js');
+
+    // initial.js
+    app.import (app.bowerDirectory + '/initial.js/dist/initial.min.js');
   },
 
   contentFor (type, config) {
