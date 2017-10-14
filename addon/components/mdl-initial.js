@@ -6,6 +6,8 @@ export default Ember.Component.extend({
 
   tagName: 'img',
 
+  classNames: ['mdl-initial'],
+
   attributeBindings: ['height', 'width'],
 
   didRender () {
