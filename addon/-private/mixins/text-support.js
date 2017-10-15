@@ -79,7 +79,17 @@ export default Ember.Mixin.create (InputMixin, {
 
     this.setProperties ({$wrapper: null, $label: null, $error: null});
   },
-  
+
+  _onBlur () {
+    this._super (...arguments);
+
+    // Set the current value as the new initial value.
+    this.set ('_initValue', this.get ('value'));
+  },
+
+  isDirty: Ember.computed.not ('isClean'),
+  isClean: Ember.computed.equal ('_initValue', 'value'),
+
   _toggleWrapperClassNames () {
     let $wrapper = this.get ('$wrapper');
 
@@ -99,7 +109,7 @@ export default Ember.Mixin.create (InputMixin, {
       // includes removing the invalid class from the wrapper.
       if (this.element.validity.customError) {
         this.element.setCustomValidity ('');
-        this._setErrorMessageText ('');
+        this._showErrorMessage ('');
 
         $wrapper.toggleClass ('is-invalid', false);
       }
@@ -110,7 +120,7 @@ export default Ember.Mixin.create (InputMixin, {
       if (typeOf === 'string') {
         // Update the custom error message.
         this.element.setCustomValidity (message);
-        this._setErrorMessageText (message);
+        this._showErrorMessage (message);
 
         // Make sure the wrapper class has the invalid class.
         $wrapper.toggleClass ('is-invalid', true);
@@ -124,8 +134,9 @@ export default Ember.Mixin.create (InputMixin, {
     }
   },
 
-  _setErrorMessageText (message) {
+  _showErrorMessage (message) {
     this.get ('$error').text (message);
+    this.get ('$wrapper').toggleClass ('is-invalid', !Ember.isEmpty (message));
   },
 
   validateInput () {
@@ -147,10 +158,10 @@ export default Ember.Mixin.create (InputMixin, {
 
         if (failed) {
           if (Ember.isPresent (customError[reason])) {
-            this._setErrorMessageText (customError[reason]);
+            this._showErrorMessage (customError[reason]);
           }
           else {
-            this._setErrorMessageText (this.element.validationMessage);
+            this._showErrorMessage (this.element.validationMessage);
           }
 
           break;
@@ -158,7 +169,7 @@ export default Ember.Mixin.create (InputMixin, {
       }
     }
     else {
-      this._setErrorMessageText (this.element.validationMessage);
+      this._showErrorMessage (this.element.validationMessage);
     }
   }
 });

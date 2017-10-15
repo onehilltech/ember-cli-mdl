@@ -6,13 +6,13 @@ export default Ember.Mixin.create ({
   didInsertElement () {
     this._super (...arguments);
 
-    this.$ ().on ('blur', this._validateInput.bind (this));
+    this.$ ().on ('blur', this._onBlur.bind (this));
   },
 
-  _validateInput () {
+  _onBlur () {
     let $wrapper = this.get ('$wrapper');
 
-    let isDirty = $wrapper.hasClass ('is-dirty');
+    let isDirty = $wrapper.hasClass ('is-dirty') || this.get ('isDirty');
     let isInvalid = $wrapper.hasClass ('is-invalid');
 
     if (isDirty || isInvalid) {
@@ -20,7 +20,9 @@ export default Ember.Mixin.create ({
       this.set ('errorMessage');
 
       // Validate the input.
-      this.validateInput ();
+      Ember.run (function () {
+        this.validateInput ();
+      }.bind (this));
     }
   },
 
