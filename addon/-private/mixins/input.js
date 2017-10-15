@@ -15,8 +15,13 @@ export default Ember.Mixin.create ({
     let isDirty = $wrapper.hasClass ('is-dirty');
     let isInvalid = $wrapper.hasClass ('is-invalid');
 
-    if (isDirty || isInvalid)
+    if (isDirty || isInvalid) {
+      // Reset the custom error message.
+      this.set ('errorMessage');
+
+      // Validate the input.
       this.validateInput ();
+    }
   },
 
   validateInput () {
