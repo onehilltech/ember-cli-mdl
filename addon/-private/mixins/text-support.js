@@ -105,12 +105,22 @@ export default Ember.Mixin.create (InputMixin, {
       }
     }
     else {
-      // Update the custom error message.
-      this.element.setCustomValidity (message);
-      this._setErrorMessageText (message);
+      let typeOf = Ember.typeOf (message);
 
-      // Make sure the wrapper class has the invalid class.
-      $wrapper.toggleClass ('is-invalid', true);
+      if (typeOf === 'string') {
+        // Update the custom error message.
+        this.element.setCustomValidity (message);
+        this._setErrorMessageText (message);
+
+        // Make sure the wrapper class has the invalid class.
+        $wrapper.toggleClass ('is-invalid', true);
+      }
+      else if (Ember.isArray (message)) {
+        this.setErrorMessage (message[0].message);
+      }
+      else if (typeOf === 'object') {
+        this.setErrorMessage (message.message);
+      }
     }
   },
 
