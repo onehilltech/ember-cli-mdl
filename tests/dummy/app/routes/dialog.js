@@ -1,4 +1,5 @@
-import Ember from 'ember';
+import Material from 'ember-cli-mdl';
 
-export default Ember.Route.extend({
+export default Material.Route.extend ({
+
 });

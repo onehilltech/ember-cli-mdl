@@ -36,7 +36,7 @@ export default Component.extend({
     if (show) {
       this.element.showModal ();
     }
-    else {
+    else if (this.element.open) {
       this.element.close ();
     }
   },
