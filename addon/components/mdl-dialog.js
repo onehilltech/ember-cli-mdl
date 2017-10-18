@@ -17,8 +17,11 @@ export default Component.extend({
   negativeText: 'No',
 
   hasPositiveButton: Ember.computed.or ('positiveClick', 'showPositiveButton'),
+
   hasNeutralButton: Ember.computed.or ('neutralClick', 'showNeutralButton'),
+
   hasNegativeButton: Ember.computed.or ('negativeClick', 'showNegativeButton'),
+
   hasButtons: Ember.computed.or ('hasNegativeButton', 'hasPositiveButton', 'hasNeutralButton'),
 
   didInsertElement () {
@@ -35,9 +38,25 @@ export default Component.extend({
 
     if (show) {
       this.element.showModal ();
+
+      // Listen for the ESC button since there is no way to register
+      // for when the dialog is closed.
+      Ember.$(document).on ('keyup', this._onKeyUp.bind (this));
     }
     else if (this.element.open) {
       this.element.close ();
+    }
+
+    if (!show) {
+      Ember.$(document).off ('keyup');
+    }
+  },
+
+  _onKeyUp (ev) {
+    if (ev.keyCode === 27) {
+      Ember.run (() => {
+        this.set ('show', false)
+      });
     }
   },
 
