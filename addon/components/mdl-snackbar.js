@@ -1,4 +1,6 @@
+import Ember from 'ember';
 import Component from '../-private/component';
+
 import layout from '../templates/components/mdl-snackbar';
 
 export default Component.extend({

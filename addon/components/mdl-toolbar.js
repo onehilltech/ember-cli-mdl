@@ -8,6 +8,8 @@ export default LayoutHeaderRowComponent.extend({
 
   classNames: ['mdl-toolbar'],
 
+  router: Ember.inject.service (),
+
   didInsertElement () {
     this._super (...arguments);
 
@@ -44,9 +46,5 @@ export default LayoutHeaderRowComponent.extend({
       args.push (navigateUpToData);
 
     router.replaceWith.apply (router, args);
-  },
-
-  router: Ember.computed (function() {
-    return Ember.getOwner (this).lookup ('router:main');
-  }).readOnly ()
+  }
 });
