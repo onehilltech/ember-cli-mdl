@@ -6,5 +6,7 @@ export default Component.extend({
 
   tagName: 'ul',
 
-  classNames: ['mdl-list']
+  classNames: ['mdl-list'],
+
+  classNameBindings: ['noSpacing:mdl-list--no-spacing']
 });
