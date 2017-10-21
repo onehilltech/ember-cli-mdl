@@ -11,6 +11,8 @@ export default Component.extend({
 
   classNames: ['mdl-list__item'],
 
+  router: Ember.inject.service (),
+
   classNameBindings: [
     'border:mdl-list__item--border',
     'linesClassName'
