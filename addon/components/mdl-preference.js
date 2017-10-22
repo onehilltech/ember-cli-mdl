@@ -10,6 +10,9 @@ export default ListItemComponent.extend({
 
   subtitle: null,
 
+  /// By default, we have a border on the list item.
+  border: true,
+
   didReceiveAttrs () {
     this._super (...arguments);
 
