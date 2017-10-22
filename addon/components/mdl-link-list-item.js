@@ -24,12 +24,14 @@ const LinkListItemComponent = ListItemComponent.extend({
     let queryParams = this.get ('queryParams');
     let replace = this.get ('replace');
 
-    if (replace) {
-      router.replaceWith (routeName, queryParams);
+    let args = [routeName];
+
+    if (queryParams) {
+      args.push (queryParams);
     }
-    else {
-      router.transitionTo (routeName, queryParams);
-    }
+
+    let method = replace ? router.replaceWith : router.transitionTo;
+    method.apply (router, args);
   }
 });
 
