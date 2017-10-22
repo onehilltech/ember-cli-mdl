@@ -1,11 +1,7 @@
 import PreferenceComponent from './mdl-preference';
 import { inject as service } from '@ember/service';
 
-import layout from '../templates/components/mdl-preference-link';
-
 let PreferenceLinkComponent = PreferenceComponent.extend({
-  layout,
-
   classNames: ['mdl-preference__link'],
 
   router: service (),

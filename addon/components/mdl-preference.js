@@ -2,9 +2,9 @@ import ListItemComponent from './mdl-list-item';
 import layout from '../templates/components/mdl-preference';
 
 export default ListItemComponent.extend({
-  classNames: ['mdl-preference'],
-
   layout,
+
+  classNames: ['mdl-preference'],
 
   title: null,
 
