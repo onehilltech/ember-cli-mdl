@@ -8,7 +8,7 @@ export default LayoutHeaderRowComponent.extend({
 
   classNames: ['mdl-toolbar'],
 
-  router: Ember.inject.service (),
+  routing: Ember.inject.service('-routing'),
 
   didInsertElement () {
     this._super (...arguments);
@@ -37,14 +37,10 @@ export default LayoutHeaderRowComponent.extend({
   },
 
   navigateUp () {
-    let router = this.get ('router');
+    let routing = this.get ('routing');
+    let routeName = this.get ('navigateUpTo');
+    let queryParams = this.get ('navigateUpToData');
 
-    let args = [this.get ('navigateUpTo')];
-    let navigateUpToData = this.get ('navigateUpToData');
-
-    if (navigateUpToData)
-      args.push (navigateUpToData);
-
-    router.replaceWith.apply (router, args);
+    routing.transitionTo (routeName, null, queryParams, true);
   }
 });
