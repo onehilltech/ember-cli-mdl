@@ -15,8 +15,12 @@ export default Ember.Mixin.create ({
         return;
       }
 
+      let behaviorOptions = Ember.getWithDefault (this, 'behaviorOptions', {});
       let behavior = BehaviorClass.create ({});
+
       Ember.set (this, '_behavior', behavior);
+
+      behavior.setProperties (behaviorOptions);
     }
   }),
 
