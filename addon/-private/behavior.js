@@ -5,6 +5,8 @@ import Ember from 'ember';
  * dynamically added to the application are upgraded.
  */
 export default Ember.Object.extend ({
+  mergedProperties: ['behaviorOptions'],
+
   _component: null,
 
   component: Ember.computed ({
