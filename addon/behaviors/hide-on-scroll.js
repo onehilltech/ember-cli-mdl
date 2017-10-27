@@ -2,7 +2,7 @@ import Behavior from '../-private/behavior';
 import Ember from 'ember';
 
 export default Behavior.extend ({
-  deltaThreshold: 32,
+  scrollThreshold: 32,
 
   didAttachToComponent () {
     this._super (...arguments);
@@ -30,13 +30,13 @@ export default Behavior.extend ({
 
     let lastPosition = this.getWithDefault ('_lastPosition', 0);
     let delta = currentPosition - lastPosition;
-    let deltaThreshold = this.get ('deltaThreshold');
+    let scrollThreshold = this.get ('scrollThreshold');
 
-    if (delta >= deltaThreshold) {
+    if (delta >= scrollThreshold) {
       this._showElement (false);
       this.set ('_lastPosition', currentPosition);
     }
-    else if (delta < -deltaThreshold) {
+    else if (delta < -scrollThreshold) {
       this._showElement (true);
       this.set ('_lastPosition', currentPosition);
     }
