@@ -26,6 +26,10 @@ Router.map(function() {
   });
   this.route('snackbar');
   this.route('initial');
+
+  this.route('behaviors', function() {
+    this.route('hide-on-scroll');
+  });
 });
 
 export default Router;

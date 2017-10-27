@@ -18,6 +18,8 @@ export default Ember.Object.extend ({
       if (!Ember.isNone (value)) {
         this.didAttachToComponent ();
       }
+
+      return value;
     },
 
     get () {

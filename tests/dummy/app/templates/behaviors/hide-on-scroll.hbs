@@ -1,0 +1,15 @@
+{{#mdl-layout fixedHeader=true}}
+  {{#mdl-layout-header}}
+    {{mdl-toolbar title="Hide on Scroll"}}
+  {{/mdl-layout-header}}
+
+  {{#mdl-layout-content}}
+    {{#mdl-preference-list}}
+      {{#each preferences as |preference|}}
+        {{mdl-preference title=preference.title subtitle=preference.subtitle}}
+      {{/each}}
+    {{/mdl-preference-list}}
+
+    {{#mdl-button type="fab" accent="true" behavior="hideOnScroll"}}{{mdl-icon icon="add"}}{{/mdl-button}}
+  {{/mdl-layout-content}}
+{{/mdl-layout}}

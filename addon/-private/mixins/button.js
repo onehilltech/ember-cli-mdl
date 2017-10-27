@@ -1,6 +1,7 @@
 import Ember from 'ember';
+import BehaviorMixin from './behavior';
 
-export default Ember.Mixin.create ({
+export default Ember.Mixin.create (BehaviorMixin, {
   classNames: ['mdl-button', 'mdl-js-button'],
 
   classNameBindings: [
