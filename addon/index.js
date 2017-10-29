@@ -20,6 +20,8 @@ import CardTitleTextComponent from './components/mdl-card-title-text';
 
 import DialogComponent from './components/mdl-dialog';
 
+import FormComponent from './components/mdl-form';
+
 import LinkComponent from './-private/link-component';
 import ListItemComponent from './components/mdl-list-item';
 
@@ -46,6 +48,8 @@ let MaterialComponent = {
   CardTitleText: CardTitleTextComponent,
 
   Dialog: DialogComponent,
+
+  Form: FormComponent,
 
   ListItem: ListItemComponent,
   Link: LinkComponent,
