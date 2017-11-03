@@ -4,12 +4,13 @@ export {default as LookupComponentMixin} from './-private/mixins/lookup-componen
 // Export the components. This allows third-party add-ons and application
 // components to extends the components.
 
-import AbstractButtonComponent from './-private/components/abstract-button';
+import Badge from './components/mdl-badge';
 
-import BadgeComponent from './components/mdl-badge';
-import ButtonComponent from './components/mdl-button';
-
-import FABComponent from './components/mdl-fab';
+// button components
+import AbstractButton from './-private/components/abstract-button';
+import Button from './components/mdl-button';
+import FAB from './components/mdl-fab';
+import IconButton from './components/mdl-icon-button';
 
 import CardComponent from './components/mdl-card';
 import CardActionComponent from './components/mdl-card-action';
@@ -22,9 +23,8 @@ import CardSupportingTextComponent from './components/mdl-card-supporting-text';
 import CardTitleComponent from './components/mdl-card-title';
 import CardTitleTextComponent from './components/mdl-card-title-text';
 
-import DialogComponent from './components/mdl-dialog';
-
-import FormComponent from './components/mdl-form';
+import Dialog from './components/mdl-dialog';
+import Form from './components/mdl-form';
 
 import LinkComponent from './-private/link-component';
 import ListItemComponent from './components/mdl-list-item';
@@ -32,17 +32,19 @@ import ListItemComponent from './components/mdl-list-item';
 import NavigationComponent from './components/mdl-navigation';
 import NavigationLinkComponent from './components/mdl-navigation-link';
 
-import TextfieldComponent from './components/mdl-textfield';
-import TextareaComponent from './components/mdl-textarea';
-import ToolbarComponent from './components/mdl-toolbar';
+import Textfield from './components/mdl-textfield';
+import Textarea from './components/mdl-textarea';
+
+import Toolbar from './components/mdl-toolbar';
 
 let MaterialComponent = {
-  AbstractButton: AbstractButtonComponent,
+  Badge,
 
-  Badge: BadgeComponent,
-  Button: ButtonComponent,
-
-  FAB: FABComponent,
+  // button components
+  AbstractButton,
+  Button,
+  FAB,
+  IconButton,
 
   Card: CardComponent,
   CardAction: CardActionComponent,
@@ -55,9 +57,8 @@ let MaterialComponent = {
   CardTitle: CardTitleComponent,
   CardTitleText: CardTitleTextComponent,
 
-  Dialog: DialogComponent,
-
-  Form: FormComponent,
+  Dialog,
+  Form,
 
   ListItem: ListItemComponent,
   Link: LinkComponent,
@@ -65,10 +66,10 @@ let MaterialComponent = {
   Navigation: NavigationComponent,
   NavigationLink: NavigationLinkComponent,
 
-  Textarea: TextareaComponent,
-  Textfield: TextfieldComponent,
+  Textarea,
+  Textfield,
 
-  Toolbar: ToolbarComponent,
+  Toolbar,
 };
 
 export {MaterialComponent as Component};
