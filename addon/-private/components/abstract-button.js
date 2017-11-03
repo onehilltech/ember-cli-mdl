@@ -26,7 +26,10 @@ export default Ember.Component.extend (RippleEffectMixin, BehaviorMixin, {
     'colorClassName',
   ],
 
-  attributeBindings: ['disabled'],
+  /// The default button type. Other options include 'submit' and 'reset'.
+  type: 'button',
+
+  attributeBindings: ['value', 'type', 'disabled'],
 
   colorClassName: Ember.computed ('color', function () {
     let color = this.get ('color');
