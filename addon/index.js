@@ -4,8 +4,12 @@ export {default as LookupComponentMixin} from './-private/mixins/lookup-componen
 // Export the components. This allows third-party add-ons and application
 // components to extends the components.
 
+import AbstractButtonComponent from './-private/components/abstract-button';
+
 import BadgeComponent from './components/mdl-badge';
 import ButtonComponent from './components/mdl-button';
+
+import FABComponent from './components/mdl-fab';
 
 import CardComponent from './components/mdl-card';
 import CardActionComponent from './components/mdl-card-action';
@@ -33,8 +37,12 @@ import TextareaComponent from './components/mdl-textarea';
 import ToolbarComponent from './components/mdl-toolbar';
 
 let MaterialComponent = {
+  AbstractButton: AbstractButtonComponent,
+
   Badge: BadgeComponent,
   Button: ButtonComponent,
+
+  FAB: FABComponent,
 
   Card: CardComponent,
   CardAction: CardActionComponent,

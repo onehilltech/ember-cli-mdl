@@ -1,11 +1,47 @@
 <div style="padding: 16px">
-  <p>{{#mdl-button disabled=true}}Save{{/mdl-button}}</p>
+  <h5>Flat Buttons</h5>
 
-  <p>{{#mdl-button type="flat" colored=true accent=true}}Save{{/mdl-button}}</p>
+  <div class="buttons-container">
+    <span class="button-container">{{#mdl-button flat=true}}Button{{/mdl-button}}</span>
+    <span class="button-container">{{#mdl-button flat=true colored=true}}Button{{/mdl-button}} Colored</span>
+    <span class="button-container">{{#mdl-button flat=true color="primary"}}Button{{/mdl-button}} Primary</span>
+    <span class="button-container">{{#mdl-button flat=true color="accent"}}Button{{/mdl-button}} Accent</span>
+  </div>
 
-  <p>{{#mdl-button type="fab" colored=true}}{{mdl-icon icon="add"}}{{/mdl-button}}</p>
+  <h5>Raised Buttons</h5>
 
-  <p>{{#mdl-button type="mini-fab" colored=true}}{{mdl-icon icon="add"}}{{/mdl-button}}</p>
+  <div class="buttons-container">
+    <span class="button-container">{{#mdl-button}}Button{{/mdl-button}}</span>
+    <span class="button-container">{{#mdl-button colored=true}}Button{{/mdl-button}} Colored</span>
+    <span class="button-container">{{#mdl-button color="primary"}}Button{{/mdl-button}} Primary</span>
+    <span class="button-container">{{#mdl-button color="accent"}}Button{{/mdl-button}} Accent</span>
+  </div>
 
-  <p>{{#mdl-button type="icon" colored=true}}?{{/mdl-button}}</p>
+  <h5>Icon Buttons</h5>
+
+  <div class="buttons-container">
+    <span class="button-container">{{mdl-icon-button icon="mood"}}</span>
+    <span class="button-container">{{mdl-icon-button icon="mood" colored=true}}Colored</span>
+    <span class="button-container">{{mdl-icon-button icon="mood" color="primary"}}Primary</span>
+    <span class="button-container">{{mdl-icon-button icon="mood" color="accent"}}Accent</span>
+  </div>
+
+
+  <h5>Floating Action Buttons</h5>
+
+  <div class="buttons-container">
+    <span class="button-container">{{#mdl-fab}}{{mdl-icon icon="add"}}{{/mdl-fab}}</span>
+    <span class="button-container">{{#mdl-fab colored=true}}{{mdl-icon icon="add"}}{{/mdl-fab}} Colored</span>
+    <span class="button-container">{{#mdl-fab color="primary"}}{{mdl-icon icon="add"}}{{/mdl-fab}} Primary</span>
+    <span class="button-container">{{#mdl-fab color="accent"}}{{mdl-icon icon="add"}}{{/mdl-fab}} Accent</span>
+  </div>
+
+  <h5>Mini Floating Action Button</h5>
+
+  <div class="buttons-container">
+    <span class="button-container">{{#mdl-fab mini=true}}{{mdl-icon icon="add"}}{{/mdl-fab}}</span>
+    <span class="button-container">{{#mdl-fab colored=true mini=true colored=true}}{{mdl-icon icon="add"}}{{/mdl-fab}} Colored</span>
+    <span class="button-container">{{#mdl-fab color="primary" mini=true}}{{mdl-icon icon="add"}}{{/mdl-fab}} Primary</span>
+    <span class="button-container">{{#mdl-fab color="accent" mini=true}}{{mdl-icon icon="add"}}{{/mdl-fab}} Accent</span>
+  </div>
 </div>

@@ -1,6 +1,6 @@
-{{#if (not floatingLabel)}}
+{{#unless floatingLabel}}
   <option value=""></option>
-{{/if}}
+{{/unless}}
 
 {{#each options as |option|}}
   <option value={{option.value}} selected={{option.selected}} disabled={{option.disabled}} label={{option.label}}>{{option.text}}</option>
