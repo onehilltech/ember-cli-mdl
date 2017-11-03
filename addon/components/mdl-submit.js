@@ -1,13 +1,9 @@
-import Component from '../-private/component';
-import ButtonMixin from '../-private/mixins/button';
-import layout from '../templates/components/mdl-submit';
+import ButtonComponent from '../components/mdl-button';
 
-export default Component.extend (ButtonMixin, {
-  layout,
-
+export default ButtonComponent.extend ({
   tagName: 'input',
 
-  attributeBindings: ['disabled', 'value'],
+  attributeBindings: ['value'],
 
   value: 'Submit',
 
