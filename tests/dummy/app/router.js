@@ -30,6 +30,7 @@ Router.map(function() {
   this.route('behaviors', function() {
     this.route('hide-on-scroll');
   });
+  this.route('menus');
 });
 
 export default Router;

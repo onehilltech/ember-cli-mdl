@@ -1,0 +1,30 @@
+.mdl-route__menus {
+  .mdl-layout__content {
+    .mdl-card {
+      position: relative;
+      margin: 8px;
+
+      overflow: visible;
+    }
+
+    .mdl-menu {
+      overflow: visible;
+    }
+
+    #menu2 {
+      position: absolute;
+      right: 0;
+    }
+
+    #menu3 {
+      position: absolute;
+      bottom: 0;
+    }
+
+    #menu4 {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+  }
+}

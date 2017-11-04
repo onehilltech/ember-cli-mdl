@@ -1,3 +1,4 @@
+import Component from '../component';
 import Ember from 'ember';
 import BehaviorMixin from '../mixins/behavior';
 import RippleEffectMixin from '../mixins/ripple-effect';
@@ -14,7 +15,7 @@ const colorMapping = {
  *
  * Base class for all buttons.
  */
-export default Ember.Component.extend (RippleEffectMixin, BehaviorMixin, {
+export default Component.extend (RippleEffectMixin, BehaviorMixin, {
   layout,
 
   tagName: 'button',
