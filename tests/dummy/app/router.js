@@ -31,6 +31,7 @@ Router.map(function() {
     this.route('hide-on-scroll');
   });
   this.route('menus');
+  this.route('tables');
 });
 
 export default Router;

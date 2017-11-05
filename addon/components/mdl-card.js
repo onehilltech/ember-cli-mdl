@@ -1,18 +1,10 @@
-import Ember from 'ember';
 import Component from '../-private/component';
+import ShadowSupport from '../-private/mixins/shadow-support';
 
 import layout from '../templates/components/mdl-card';
 
-export default Component.extend({
+export default Component.extend (ShadowSupport, {
   layout,
 
   classNames: ['mdl-card'],
-
-  classNameBindings: ['shadowClassName'],
-
-  shadowClassName: Ember.computed ('shadow', function () {
-    return `mdl-shadow--${this.get ('shadow')}dp`;
-  }),
-
-  shadow: 2
 });

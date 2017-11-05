@@ -1,0 +1,38 @@
+{{#mdl-layout fixedHeader=true}}
+  {{#mdl-layout-header}}
+    {{mdl-toolbar title="Tables" navigateUpTo="index"}}
+  {{/mdl-layout-header}}
+
+  {{#mdl-layout-content}}
+
+    {{#mdl-table selectable=true}}
+      {{#mdl-table-head}}
+        {{#mdl-table-header}}Material{{/mdl-table-header}}
+        {{#mdl-table-header sorted="descending"}}Quantity{{/mdl-table-header}}
+        {{#mdl-table-header}}Unit price{{/mdl-table-header}}
+      {{/mdl-table-head}}
+
+      {{#mdl-table-body}}
+        {{#mdl-table-row}}
+          {{#mdl-table-cell}}Laminate (Gold on Blue){{/mdl-table-cell}}
+          {{#mdl-table-cell numeric=true}}10{{/mdl-table-cell}}
+          {{#mdl-table-cell numeric=true}}$2.35{{/mdl-table-cell}}
+        {{/mdl-table-row}}
+
+        {{#mdl-table-row}}
+          {{#mdl-table-cell}}Acrylic (Transparent){{/mdl-table-cell}}
+          {{#mdl-table-cell numeric=true}}25{{/mdl-table-cell}}
+          {{#mdl-table-cell numeric=true}}$2.90{{/mdl-table-cell}}
+        {{/mdl-table-row}}
+
+        {{#mdl-table-row}}
+          {{#mdl-table-cell}}Plywood (Birch){{/mdl-table-cell}}
+          {{#mdl-table-cell numeric=true}}50{{/mdl-table-cell}}
+          {{#mdl-table-cell numeric=true}}$1.25{{/mdl-table-cell}}
+        {{/mdl-table-row}}
+
+      {{/mdl-table-body}}
+    {{/mdl-table}}
+
+  {{/mdl-layout-content}}
+{{/mdl-layout}}
