@@ -1,0 +1,10 @@
+.mdl-button {
+  .material-icons {
+    &.left {
+      margin-right: 8px;
+    }
+    &.right {
+      margin-left: 8px;
+    }
+  }
+}
