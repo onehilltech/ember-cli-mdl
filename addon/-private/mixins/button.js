@@ -1,21 +1,30 @@
 import Ember from 'ember';
 import BehaviorMixin from './behavior';
+import RippleEffectMixin from './ripple-effect';
 
-export default Ember.Mixin.create (BehaviorMixin, {
+const colorMapping = {
+  primary: 'mdl-button--primary',
+  accent: 'mdl-button--accent'
+};
+
+export default Ember.Mixin.create (RippleEffectMixin, BehaviorMixin, {
+  tagName: 'button',
+
   classNames: ['mdl-button', 'mdl-js-button'],
 
   classNameBindings: [
     'colored:mdl-button--colored',
-    'primary:mdl-button--primary',
-    'accent:mdl-button--accent',
-    'typeClassName'
+    'colorClassName',
   ],
 
-  attributeBindings: ['disabled'],
+  /// The default button type. Other options include 'submit' and 'reset'.
+  type: 'button',
 
-  typeClassName: Ember.computed ('type', function () {
-    let type = this.get ('type');
-    return Ember.isEmpty (type) ? null : `mdl-button--${type}`;
+  attributeBindings: ['value', 'type', 'disabled'],
+
+  colorClassName: Ember.computed ('color', function () {
+    let color = this.get ('color');
+    return colorMapping[color];
   }),
 
   /// By default, the buttons have a ripple effect.
