@@ -1,6 +1,7 @@
 import Ember from 'ember';
+import TooltipSupport from './tooltip-support';
 
-export default Ember.Mixin.create ({
+export default Ember.Mixin.create (TooltipSupport, {
   mdl: Ember.inject.service (),
 
   concatenatedProperties: ['wrapperClassNames', 'labelClassName'],
