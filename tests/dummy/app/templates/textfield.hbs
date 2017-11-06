@@ -17,7 +17,6 @@
     <div style="padding: 16px; position: relative">
       {{#mdl-form action="#" style="padding: 16px"}}
 
-
         {{mdl-textfield label="Text..."
                         required=true
                         fullWidth=true
@@ -25,7 +24,8 @@
                         placeholder="Name goes here"
                         errorMessage=errorMessage
                         fullWidth=true
-                        floatingLabel=true}}
+                        floatingLabel=true
+                        tooltip="Text field"}}
 
         {{#mdl-button type="raised" accent=true click=(action (mut errorMessage) "This is a custom error message")}}Show Custom Error{{/mdl-button}}
 

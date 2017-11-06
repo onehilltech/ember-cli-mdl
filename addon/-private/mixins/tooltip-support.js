@@ -1,35 +1,31 @@
 import Ember from 'ember';
 
 export default Ember.Mixin.create ({
-  _insertTooltipElement: Ember.on ('didInsertElement', function () {
-    let tooltip = this.get ('tooltip');
+  getTooltipElementId () {
+    return this.elementId;
+  },
 
-    if (Ember.isPresent (tooltip)) {
-      // Insert the tooltip, and save the tooltip object for later.
-      let $tooltip = this._getTooltipElement ();
-      $tooltip.text (tooltip);
-
-      this.set ('_oldTooltip', tooltip);
-
-      this._toggleTooltipClassNames ();
-    }
-  }),
-
-  _updateTooltip: Ember.on ('didUpdate', function () {
+  _insertTooltipElement: Ember.on ('didRender', function () {
     let {tooltip, _oldTooltip} = this.getProperties (['tooltip', '_oldTooltip']);
 
+    // This first check focuses on the existence of the tooltip element in
+    // the DOM model.
     if (tooltip !== _oldTooltip) {
-      let $tooltip = this._getTooltipElement ();
-      $tooltip.text (tooltip);
+      if (Ember.isPresent (tooltip)) {
+        // Make sure the tooltip is at least present in the DOM model.
+        let $tooltip = this._getTooltipElement ();
+        $tooltip.text (tooltip);
+      }
+      else {
+        this._removeTooltipElement ();
+      }
 
+      // Save the current tooltip value as the old one.
       this.set ('_oldTooltip', tooltip);
     }
 
-    if (Ember.isPresent (tooltip)) {
+    if (this.$tooltip) {
       this._toggleTooltipClassNames ();
-    }
-    else if (this.$tooltip) {
-      this._removeTooltipElement ();
     }
   }),
 
@@ -53,8 +49,11 @@ export default Ember.Mixin.create ({
     }
 
     // Insert the tooltip, and save the tooltip object for later.
-    let $tooltip = Ember.$(`<div class="mdl-tooltip" for="${this.elementId}"></div>`);
-    $tooltip.insertAfter (this.$());
+    let tooltipElementId = this.getTooltipElementId ();
+    let $tooltip = Ember.$(`<div class="mdl-tooltip" for="${tooltipElementId}"></div>`);
+
+    let $tooltipElement = Ember.$(`#${tooltipElementId}`);
+    $tooltip.insertAfter ($tooltipElement);
 
     this.$tooltip = $tooltip;
 

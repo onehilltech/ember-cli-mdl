@@ -24,7 +24,8 @@ export default Ember.Mixin.create (InputMixin, {
     this._super (...arguments);
 
     // Insert the wrapper element for the input.
-    this.$ ().wrap (`<div class="mdl-textfield mdl-js-textfield"></div>`);
+    let wrapperId = this.get ('wrapperId');
+    this.$ ().wrap (`<div id="${wrapperId}" class="mdl-textfield mdl-js-textfield"></div>`);
     let $wrapper = this.$().parent ();
 
     // Insert the label for the input.
@@ -79,6 +80,14 @@ export default Ember.Mixin.create (InputMixin, {
 
     this.setProperties ({$wrapper: null, $label: null, $error: null});
   },
+
+  getTooltipElementId () {
+    return this.get ('wrapperId');
+  },
+
+  wrapperId: Ember.computed (function () {
+    return `text-wrapper__${this.elementId}`;
+  }),
 
   _onBlur () {
     this._super (...arguments);

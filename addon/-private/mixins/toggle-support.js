@@ -9,7 +9,8 @@ export default Ember.Mixin.create (TooltipSupport, {
   didInsertElement () {
     this._super (...arguments);
 
-    this.$ ().wrap (`<label class="${this.get ('wrapperClassNames').join (' ')}" for="${this.elementId}"></label>`);
+    let wrapperId = this.get ('wrapperId');
+    this.$ ().wrap (`<label id="${wrapperId}" class="${this.get ('wrapperClassNames').join (' ')}" for="${this.elementId}"></label>`);
     let $wrapper = this.$().parent ();
 
     // Insert the radio label after the input tag (i.e., this element).
@@ -36,11 +37,23 @@ export default Ember.Mixin.create (TooltipSupport, {
     this.$().unwrap ();
   },
 
+  getTooltipElementId () {
+    return this.get ('wrapperId');
+  },
+
+  wrapperId: Ember.computed (function () {
+    return `toggle-wrapper__${this.elementId}`;
+  }),
+
   didUpdate () {
     this._super (...arguments);
 
     this._setLabel ();
     this._applyRippleEffect ();
+  },
+
+  getTooltipElementId () {
+    return this.get ('wrapperId');
   },
 
   _setLabel () {
