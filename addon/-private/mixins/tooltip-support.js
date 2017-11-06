@@ -41,6 +41,7 @@ export default Ember.Mixin.create ({
 
   _removeTooltipElement () {
     // Remove all traces of the tooltip element.
+    this.get ('mdl').downgradeElements (this.$tooltip[0]);
     this.$tooltip.remove ();
 
     this.set ('$tooltip');
@@ -56,6 +57,8 @@ export default Ember.Mixin.create ({
     $tooltip.insertAfter (this.$());
 
     this.$tooltip = $tooltip;
+
+    this.get ('mdl').upgradeElement ($tooltip[0]);
 
     return $tooltip;
   },
