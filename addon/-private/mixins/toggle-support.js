@@ -12,11 +12,12 @@ export default Ember.Mixin.create ({
     let $wrapper = this.$().parent ();
 
     // Insert the radio label after the input tag (i.e., this element).
-    let $label = Ember.$(`<span class="${this.get ('labelClassName').join (' ')}">${this.get ('label')}</span>`);
+    let $label = Ember.$(`<span class="${this.get ('labelClassName').join (' ')}"></span>`);
     $label.insertAfter (this.$());
 
     this.setProperties ({$wrapper: $wrapper, $label: $label});
 
+    this._setLabel ();
     this._applyRippleEffect ();
 
     this.get ('mdl').upgradeElement ($wrapper[0]);
@@ -36,10 +37,22 @@ export default Ember.Mixin.create ({
 
   didUpdate () {
     this._super (...arguments);
+
+    this._setLabel ();
     this._applyRippleEffect ();
   },
 
+  _setLabel () {
+    let label = this.get ('label');
+
+    if (Ember.isNone (label)) {
+      label = '';
+    }
+
+    this.$label.text (label);
+  },
+
   _applyRippleEffect () {
-    this.get ('$wrapper').toggleClass ('mdl-js-ripple-effect', this.getWithDefault ('rippleEffect'));
+    this.$wrapper.toggleClass ('mdl-js-ripple-effect', this.getWithDefault ('rippleEffect'));
   }
 });
