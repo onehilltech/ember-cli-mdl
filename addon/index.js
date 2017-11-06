@@ -37,6 +37,8 @@ import Textarea from './components/mdl-textarea';
 
 import Toolbar from './components/mdl-toolbar';
 
+import TooltipSupport from './-private/mixins/tooltip-support';
+
 let MaterialComponent = {
   Badge,
 
@@ -70,6 +72,7 @@ let MaterialComponent = {
   Textfield,
 
   Toolbar,
+  TooltipSupport
 };
 
 export {MaterialComponent as Component};
