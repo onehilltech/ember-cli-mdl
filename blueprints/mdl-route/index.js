@@ -56,6 +56,14 @@ module.exports = {
         }
 
         return 'app';
+      },
+      __stylepath__: function (options) {
+        let parts = options.dasherizedModuleName.split ('/');
+        let filename = parts[parts.length - 1];
+
+        parts[parts.length - 1] = '_' + filename;
+
+        return parts.join ('/');
       }
     };
   },
@@ -67,8 +75,11 @@ module.exports = {
       moduleName = moduleName.split('/').pop();
     }
 
+    let dasherizedModuleName = stringUtil.dasherize(moduleName);
+
     return {
-      moduleName: stringUtil.dasherize(moduleName)
+      moduleName: dasherizedModuleName,
+      styleClassName: dasherizedModuleName.replace (/[/]/g, '-')
     };
   },
 
