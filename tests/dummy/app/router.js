@@ -32,6 +32,7 @@ Router.map(function() {
   });
   this.route('menus');
   this.route('tables');
+  this.route('example');
 });
 
 export default Router;
