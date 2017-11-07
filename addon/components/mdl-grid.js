@@ -6,7 +6,7 @@ export default Component.extend({
 
   classNames: ['mdl-grid'],
 
-  classNameBindings: [
-    'noSpacing:mdl-grid--no-spacing'
-  ]
+  classNameBindings: ['spacing::mdl-grid--no-spacing'],
+
+  spacing: true,
 });
