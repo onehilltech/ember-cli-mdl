@@ -1,0 +1,8 @@
+{{#if contact}}
+  <span class="mdl-chip__contact">A</span>
+{{/if}}
+
+<span class="mdl-chip__text">{{text}}</span>
+{{#if deletable}}
+  <button type="button" class="mdl-chip__action" {{action "delete"}}><i class="material-icons">{{deleteIcon}}</i></button>
+{{/if}}
