@@ -12,6 +12,7 @@ Router.map(function() {
     this.route('layout');
     this.route('toolbar');
     this.route('span');
+    this.route('div');
   });
   this.route('badges');
   this.route('buttons');
