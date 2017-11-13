@@ -5,9 +5,9 @@ export default Ember.Mixin.create ({
     return this.elementId;
   }),
 
-  getTooltipElementId () {
+  tooltipElementId: Ember.computed (function () {
     return this.elementId;
-  },
+  }),
 
   _insertTooltipElement: Ember.on ('didRender', function () {
     let {tooltip, _oldTooltip} = this.getProperties (['tooltip', '_oldTooltip']);
@@ -53,7 +53,7 @@ export default Ember.Mixin.create ({
     }
 
     // Insert the tooltip, and save the tooltip object for later.
-    let tooltipElementId = this.getTooltipElementId ();
+    let tooltipElementId = Ember.get (this, 'tooltipElementId');
     let $tooltip = Ember.$(`<div class="mdl-tooltip" for="${tooltipElementId}"></div>`);
 
     let $tooltipElement = Ember.$(`#${tooltipElementId}`);

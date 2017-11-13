@@ -39,9 +39,9 @@ export default Ember.Mixin.create (LayoutSupport, TooltipSupport, {
     this.$().unwrap ();
   },
 
-  getTooltipElementId () {
-    return this.get ('wrapperId');
-  },
+  layoutElementId: Ember.computed.readOnly ('wrapperId'),
+
+  tooltipElementId: Ember.computed.readOnly ('wrapperId'),
 
   wrapperId: Ember.computed (function () {
     return `toggle-wrapper__${this.elementId}`;
@@ -52,10 +52,6 @@ export default Ember.Mixin.create (LayoutSupport, TooltipSupport, {
 
     this._setLabel ();
     this._applyRippleEffect ();
-  },
-
-  getTooltipElementId () {
-    return this.get ('wrapperId');
   },
 
   _setLabel () {

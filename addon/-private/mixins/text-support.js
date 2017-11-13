@@ -81,9 +81,9 @@ export default Ember.Mixin.create (InputMixin, {
     this.setProperties ({$wrapper: null, $label: null, $error: null});
   },
 
-  getTooltipElementId () {
-    return this.get ('wrapperId');
-  },
+  layoutElementId: Ember.computed.readOnly ('wrapperId'),
+
+  tooltipElementId: Ember.computed.readOnly ('wrapperId'),
 
   wrapperId: Ember.computed (function () {
     return `text-wrapper__${this.elementId}`;

@@ -16,9 +16,9 @@
 
   {{#mdl-layout-content}}
     <div style="padding: 16px">
-      {{#mdl-div layoutFor="largeScreenOnly"}}<span style="color: red">This div only appears on large screens</span>{{/mdl-div}}
+      {{#mdl-div layoutFor="largeScreenOnly" tooltip="This is a tooltip" tooltipPosition="bottom"}}<span style="color: red">This div only appears on large screens</span>{{/mdl-div}}
 
-      {{#mdl-div layoutFor="smallScreenOnly"}}<span style="color: green">This div only appears on small screens</span>{{/mdl-div}}
+      {{#mdl-div layoutFor="smallScreenOnly" tooltip="This is a tooltip" tooltipPosition="bottom"}}<span style="color: green">This div only appears on small screens</span>{{/mdl-div}}
     </div>
   {{/mdl-layout-content}}
 {{/mdl-layout}}
