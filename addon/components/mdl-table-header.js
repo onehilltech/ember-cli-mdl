@@ -1,4 +1,6 @@
+import Ember from 'ember';
 import Component from '@ember/component';
+
 import layout from '../templates/components/mdl-table-header';
 
 export default Component.extend({

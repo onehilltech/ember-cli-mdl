@@ -1,3 +1,4 @@
+import Ember from 'ember';
 import ListItemComponent from './mdl-list-item';
 import layout from '../templates/components/mdl-preference';
 
