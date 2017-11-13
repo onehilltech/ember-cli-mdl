@@ -11,6 +11,7 @@ Router.map(function() {
     this.route('tabs');
     this.route('layout');
     this.route('toolbar');
+    this.route('span');
   });
   this.route('badges');
   this.route('buttons');

@@ -1,7 +1,13 @@
-<!-- title -->
+{{#if navigateUpTo}}
+  {{#unless navigateUpToData}}
+    {{#link-to navigateUpTo class="navigate-up"}}{{mdl-icon "arrow_back"}}{{/link-to}}
+  {{else}}
+    {{#link-to navigateUpTo navigateUpToData class="navigate-up"}}{{mdl-icon "arrow_back"}}{{/link-to}}
+  {{/unless}}
+{{/if}}
+
 {{#mdl-layout-title}}{{title}}{{/mdl-layout-title}}
 
-<!-- force right alignment -->
 {{mdl-layout-spacer}}
 
 <!-- yield for the menu -->
