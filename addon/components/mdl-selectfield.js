@@ -1,7 +1,10 @@
 import Ember from 'ember';
+import TooltipSupport from '../-private/mixins/tooltip-support';
+import LayoutSupport from '../-private/mixins/layout-support';
+
 import layout from '../templates/components/mdl-selectfield';
 
-export default Ember.Component.extend({
+export default Ember.Component.extend (LayoutSupport, TooltipSupport, {
   layout,
 
   mdl: Ember.inject.service (),
@@ -9,6 +12,14 @@ export default Ember.Component.extend({
   tagName: 'select',
 
   classNames: ['mdl-selectfield__select'],
+
+  wrapperId: Ember.computed (function () {
+    return this.$wrapper[0].id;
+  }).readOnly (),
+
+  layoutElementId: Ember.computed ('wrapperId'),
+
+  tooltipElementId: Ember.computed.readOnly ('wrapperId'),
 
   didInsertElement () {
     this._super (...arguments);
