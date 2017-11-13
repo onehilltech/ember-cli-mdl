@@ -1,7 +1,8 @@
-import Ember from 'ember';
+import Component from '../-private/component';
+
 import layout from '../templates/components/mdl-icon';
 
-const Icon = Ember.Component.extend({
+const Icon = Component.extend ({
   layout,
 
   tagName: 'i',
