@@ -1,6 +1,10 @@
 import Ember from 'ember';
 
 export default Ember.Mixin.create ({
+  layoutElementId: Ember.computed (function () {
+    return this.elementId;
+  }),
+
   getTooltipElementId () {
     return this.elementId;
   },

@@ -1,11 +1,12 @@
 import Ember from 'ember';
 import TooltipSupport from './mixins/tooltip-support';
+import LayoutSupport from './mixins/layout-support';
 
 /**
  * Base class for all material design lite components. This class ensures that elements
  * dynamically added to the application are upgraded.
  */
-export default Ember.Component.extend (TooltipSupport, {
+export default Ember.Component.extend (LayoutSupport, TooltipSupport, {
   mdl: Ember.inject.service (),
 
   didInsertElement () {
