@@ -17,7 +17,7 @@ export default Ember.Component.extend (LayoutSupport, TooltipSupport, {
     return this.$wrapper[0].id;
   }).readOnly (),
 
-  layoutElementId: Ember.computed ('wrapperId'),
+  layoutElementId: Ember.computed.readOnly ('wrapperId'),
 
   tooltipElementId: Ember.computed.readOnly ('wrapperId'),
 
