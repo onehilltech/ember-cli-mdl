@@ -1,5 +1,4 @@
 export {default as Route} from './-private/route';
-export {default as LookupComponentMixin} from './-private/mixins/lookup-component';
 
 // Export the components. This allows third-party add-ons and application
 // components to extends the components.
