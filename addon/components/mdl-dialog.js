@@ -37,11 +37,13 @@ export default Component.extend({
     let show = this.get ('show');
 
     if (show) {
-      this.element.showModal ();
+      if (!this.element.open) {
+        this.element.showModal ();
 
-      // Listen for the ESC button since there is no way to register
-      // for when the dialog is closed.
-      Ember.$(document).on ('keyup', this._onKeyUp.bind (this));
+        // Listen for the ESC button since there is no way to register
+        // for when the dialog is closed.
+        Ember.$(document).on ('keyup', this._onKeyUp.bind (this));
+      }
     }
     else if (this.element.open) {
       this.element.close ();
