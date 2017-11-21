@@ -105,6 +105,7 @@ export default Ember.Mixin.create (InputMixin, {
     $wrapper.toggleClass ('is-disabled', this.getWithDefault ('disabled', false));
     $wrapper.toggleClass ('is-invalid', this.getWithDefault ('isInvalid', false));
     $wrapper.toggleClass ('is-focused', this.getWithDefault ('isFocused', false));
+    $wrapper.toggleClass ('is-dirty', !!this.get ('value'));
     $wrapper.toggleClass ('mdl-textfield--floating-label', this.getWithDefault ('floatingLabel', false));
     $wrapper.toggleClass ('mdl-textfield--align-right', this.getWithDefault ('alignRight', false));
     $wrapper.toggleClass ('mdl-textfield--full-width', this.getWithDefault ('fullWidth', false));
