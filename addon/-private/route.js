@@ -6,52 +6,43 @@ export default Ember.Route.extend ({
     return `mdl-route__${className}`;
   }),
 
-  /**
-   * The route is being activated.
-   */
-  activate () {
-    this._super (...arguments);
-
+  addClass: Ember.on ('activate', function () {
     // Add the class name for this route so we can add styles.
     let classNameForRoute = this.get ('classNameForRoute');
     Ember.$('body').addClass (classNameForRoute);
-  },
+  }),
 
-  deactivate () {
-    this._super (...arguments);
-
+  removeClass: Ember.on ('deactivate', function () {
     // Remove the class name for this route so we can remove styles.
     let classNameForRoute = this.get ('classNameForRoute');
     Ember.$('body').removeClass (classNameForRoute);
-  },
+  }),
 
-  actions: {
-    /**
-     * Handle the transition event. We are mainly concerned with the route showing
-     * a dialog and the user pressing the back button. If a dialog is showing, then
-     * we need to hide the dialog and prevent the transition.
-     *
-     * @param transition
-     */
-    willTransition (transition) {
-      let classNameForRoute = this.get ('classNameForRoute');
-      let $dialogs = Ember.$ (`.${classNameForRoute}`).find ('.mdl-dialog');
-      let views = Ember.getOwner (this).lookup ('-view-registry:main');
+  /**
+   * Handle the transition event. We are mainly concerned with the route showing
+   * a dialog and the user pressing the back button. If a dialog is showing, then
+   * we need to hide the dialog and prevent the transition.
+   *
+   * @param transition
+   */
+  forceHideDialog: Ember.on ('willTransition', function (transition) {
+    let classNameForRoute = this.get ('classNameForRoute');
+    let $dialogs = Ember.$ (`.${classNameForRoute}`).find ('.mdl-dialog');
+    let views = Ember.getOwner (this).lookup ('-view-registry:main');
 
-      $dialogs.each ((i, dialog) => {
-        let mdlDialog = views[dialog.id];
-        let showing = mdlDialog.get ('show');
+    $dialogs.each ((i, dialog) => {
+      let mdlDialog = views[dialog.id];
+      let showing = mdlDialog.get ('show');
 
-        if (showing) {
-          // Hide the dialog and abort the transition.
-          mdlDialog.set ('show', false);
-          transition.abort ();
+      if (showing) {
+        // Hide the dialog and abort the transition.
+        mdlDialog.set ('show', false);
+        transition.abort ();
 
-          if (window.history) {
-            window.history.forward ();
-          }
+        if (window.history) {
+          window.history.forward ();
         }
-      });
-    }
-  }
-})
+      }
+    });
+  })
+});
