@@ -38,6 +38,13 @@ import Toolbar from './components/mdl-toolbar';
 
 import TooltipSupport from './-private/mixins/tooltip-support';
 
+import Table from './components/mdl-table';
+import TableRow from './components/mdl-table-row';
+import TableHead from './components/mdl-table-head';
+import TableHeader from './components/mdl-table-header';
+import TableBody from './components/mdl-table-body';
+import TableCell from './components/mdl-table-cell';
+
 let MaterialComponent = {
   Badge,
 
@@ -69,6 +76,13 @@ let MaterialComponent = {
 
   Textarea,
   Textfield,
+
+  Table,
+  TableRow,
+  TableHead,
+  TableHeader,
+  TableBody,
+  TableCell,
 
   Toolbar,
   TooltipSupport
