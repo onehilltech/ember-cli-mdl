@@ -7,7 +7,7 @@ module.exports = {
       {name: 'material-design-lite', target: '^1.3.0'},
       {name: 'material-design-icons', target: '^3.0.1'},
       {name: 'mdl-select-component', source: 'https://github.com/MEYVN-digital/mdl-selectfield.git#^0.0.8'},
-      {name: 'initial.js', target: '^0.2.0'}
+      {name: 'initial.js', target: 'https://github.com/judesfernando/initial.js.git#0.2.0'}
     ]).then (() => {
       return this.addAddonsToProject({
         packages: [
