@@ -14,6 +14,7 @@ export default Ember.Component.extend({
     this._super (...arguments);
 
     this.$ ().initial ({
+      color: this.get ('color'),
       name: this.get ('name'),
       height: this.get ('height'),
       width: this.get ('width'),
