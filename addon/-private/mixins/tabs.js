@@ -19,18 +19,19 @@ export default Ember.Mixin.create ({
     // because the index could change (i.e., a reordering of tabs), but the
     // ids of the existing tabs should not change.
 
-    let $activeTabs = this.$ (this.get ('_activeTabSelector'));
-    let activeTabId = $activeTabs.length === 1 ?  $activeTabs[0].id : null;
+    let selector = this.get ('_activeTabSelector');
+    let $activeTabs = this.$ (selector);
+    let activeTab = $activeTabs.length === 1 ?  $activeTabs[0] : null;
 
-    this.set ('_activeTabId', activeTabId);
+    this.set ('_activeTab', activeTab);
   },
 
   didUpdateTabs () {
     // Cache the tabs and panels for quicker access.
     this._cacheTabsAndPanels ();
 
-    let activeTabId = this.get ('_activeTabId');
-    let activeTabIndex = Ember.isNone (activeTabId) ? 0 : this.get ('$tabs').index (`#${activeTabId}`);
+    let activeTab = this.get ('_activeTab');
+    let activeTabIndex = Ember.isNone (activeTab) ? 0 : this.get ('$tabs').index (activeTab);
 
     if (activeTabIndex === -1)
       activeTabIndex = 0;
