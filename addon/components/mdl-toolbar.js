@@ -43,7 +43,7 @@ export default LayoutHeaderRowComponent.extend({
     if (navigateUpToData)
       args.push (navigateUpToData);
 
-    router.transitionTo.apply (router, args);
+    router.replaceWith.apply (router, args);
   },
 
   router: Ember.computed (function() {
