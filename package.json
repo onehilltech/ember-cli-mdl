@@ -1,6 +1,6 @@
 {
   "name": "ember-cli-mdl",
-  "version": "0.18.14",
+  "version": "0.18.15",
   "description": "The default blueprint for ember-cli addons.",
   "keywords": [
     "ember-addon"
