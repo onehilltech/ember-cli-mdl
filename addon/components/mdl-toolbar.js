@@ -8,30 +8,33 @@ export default LayoutHeaderRowComponent.extend({
 
   classNames: ['mdl-toolbar'],
 
-  didInsertElement () {
+  didRender () {
     this._super (...arguments);
 
     // Insert the navigate up icon, if present.
     let navigateUpTo = this.get ('navigateUpTo');
 
     if (navigateUpTo) {
-      let $navigateUpTo = Ember.$('<div class="mdl-layout-icon"><i class="material-icons">arrow_back</i></div>');
+      if (!this.$navigateUpTo) {
+        let $navigateUpTo = Ember.$('<div class="mdl-layout-icon"><i class="material-icons">arrow_back</i></div>');
 
-      $navigateUpTo.insertBefore (this.$());
-      $navigateUpTo.on ('click', this.navigateUp.bind (this));
+        $navigateUpTo.insertBefore (this.$());
+        $navigateUpTo.on ('click', this.navigateUp.bind (this));
 
-      this.set ('$navigateUp', $navigateUpTo);
+        this.$navigateUpTo = $navigateUpTo;
+      }
+    }
+    else if (this.$navigateUpTo) {
+      this.$navigateUpTo.remove ();
+      this.$navigateUpTo = null;
     }
   },
 
   willDestroyElement () {
     this._super (...arguments);
 
-    // Remove the navigate up icon, if present.
-    let $navigateUpTo = this.get ('$navigateUpTo');
-
-    if ($navigateUpTo)
-      $navigateUpTo.remove ();
+    if (this.$navigateUpTo)
+      this.$navigateUpTo.remove ();
   },
 
   navigateUp () {
