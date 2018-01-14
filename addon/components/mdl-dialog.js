@@ -1,3 +1,5 @@
+/* global dialogPolyfill */
+
 import Component from '../-private/component';
 import Ember from 'ember';
 
@@ -26,6 +28,10 @@ export default Component.extend({
 
   didInsertElement () {
     this._super (...arguments);
+
+    if (!this.element.showModal) {
+      dialogPolyfill.registerDialog (this.element);
+    }
 
     let $buttons = this.$('.mdl-dialog-button');
     $buttons.on ('click', this.onButtonClick.bind (this));

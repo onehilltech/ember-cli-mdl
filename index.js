@@ -32,9 +32,23 @@ module.exports = {
 
     // initial.js
     app.import (app.bowerDirectory + '/initial.js/dist/initial.min.js');
+
+    // dialog polyfill
+    app.import (app.bowerDirectory + '/dialog-polyfill/dialog-polyfill.js');
+    app.import (app.bowerDirectory + '/dialog-polyfill/dialog-polyfill.css');
   },
 
   contentFor (type, config) {
+    if (type === 'head') {
+     if (config.materialize && config.materialize.themeColor) {
+       let themeColor = config.materialize.themeColor;
+
+       return `<meta name="theme-color" content="${themeColor}">
+               <meta name="msapplication-navbutton-color" content="${themeColor}">
+               <meta name="apple-mobile-web-app-status-bar-style" content="${themeColor}">`;
+      }
+    }
+
     if (type === 'head-footer') {
       let materialize = config.materialize;
       let embedFonts = materialize && materialize.embedIconFonts;
