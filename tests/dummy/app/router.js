@@ -35,6 +35,8 @@ Router.map(function() {
   this.route('menus');
   this.route('tables');
   this.route('example');
+  this.route('slider');
+  this.route('sliders');
 });
 
 export default Router;
