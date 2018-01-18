@@ -12,17 +12,11 @@ export default Component.extend({
 
   classNames: ['mdl-dialog'],
 
-  positiveText: 'Yes',
+  hasPositiveButton: Ember.computed.or ('positive', 'positiveText'),
 
-  neutralText: 'Maybe',
+  hasNeutralButton: Ember.computed.or ('neutral', 'neutralText'),
 
-  negativeText: 'No',
-
-  hasPositiveButton: Ember.computed.or ('positiveClick', 'showPositiveButton'),
-
-  hasNeutralButton: Ember.computed.or ('neutralClick', 'showNeutralButton'),
-
-  hasNegativeButton: Ember.computed.or ('negativeClick', 'showNegativeButton'),
+  hasNegativeButton: Ember.computed.or ('negative', 'negativeText'),
 
   hasButtons: Ember.computed.or ('hasNegativeButton', 'hasPositiveButton', 'hasNeutralButton'),
 
@@ -63,7 +57,8 @@ export default Component.extend({
   _onKeyUp (ev) {
     if (ev.keyCode === 27) {
       Ember.run (() => {
-        this.set ('show', false)
+        this.sendAction ('close');
+        this.set ('show', false);
       });
     }
   },
@@ -73,25 +68,13 @@ export default Component.extend({
     let result = true;
 
     if ($target.hasClass ('positive')) {
-      let positiveClick = this.get ('positiveClick');
-
-      if (positiveClick) {
-        result = positiveClick ();
-      }
+      this.sendAction ('positive');
     }
     else if ($target.hasClass ('negative')) {
-      let negativeClick = this.get ('negativeClick');
-
-      if (negativeClick) {
-        result = negativeClick ();
-      }
+      this.sendAction ('negative');
     }
     else if ($target.hasClass ('neutral')) {
-      let neutralClick = this.get ('neutralClick');
-
-      if (neutralClick) {
-        result = neutralClick ();
-      }
+      this.sendAction ('neutral');
     }
     else {
       // We need to throw an error here.
@@ -101,16 +84,14 @@ export default Component.extend({
   },
 
   _handleResult (result) {
-    if (result === undefined || result === null) {
+    if (result === undefined || result === null || result === true) {
       // The user did not pass back a value. If the return value is undefined,
       // then it is assumed the user wants the dialog to close.
+      this.sendAction ('close');
       this.set ('show', false);
     }
     else if ((result instanceof Ember.RSVP.Promise)) {
       result.then (this._handleResult.bind (this));
-    }
-    else if (result === true) {
-      this.set ('show', false);
     }
   }
 });
