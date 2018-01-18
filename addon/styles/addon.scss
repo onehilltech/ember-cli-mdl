@@ -15,20 +15,7 @@
 @import "mdl-ext";
 @import "behaviors/behaviors";
 
-
-.buttons-container {
-  display: flex;
-  flex-direction: row;
-
-  .button-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    margin: 16px;
-
-    .mdl-button {
-      margin-bottom: 8px;
-    }
-  }
+// fix to ensure that click fires on non-clickable elements
+[data-ember-action]:not(:disabled) {
+  cursor: pointer;
 }
