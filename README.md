@@ -4,7 +4,7 @@ EmberJS add-on for [Material Design Lite](https://getmdl.io/)
 
 ## Installation
 
-    ember install ember-cli-addon
+    ember install ember-cli-mdl
     
 Due to our dependency on other add-ons that have conflicting dependencies, you must
 select the following choices to resolve the conflicts at install.
