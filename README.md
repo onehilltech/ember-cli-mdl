@@ -1,26 +1,33 @@
 # ember-cli-mdl
 
-This README outlines the details of collaborating on this Ember addon.
+EmberJS add-on for [Material Design Lite](https://getmdl.io/)
 
 ## Installation
 
-* `git clone <repository-url>` this repository
-* `cd ember-cli-mdl`
-* `npm install`
+    ember install ember-cli-addon
+    
+Due to our dependency on other add-ons that have conflicting dependencies, you must
+select the following choices to resolve the conflicts at install.
 
-## Running
+    2) material-design-lite ^1.3.0
 
-* `ember serve`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
+## Configuration
 
-## Running Tests
+The following values can be used to configure the behavior of the add-on. All configuration
+properties should be placed in `config/environment.js`.
 
-* `npm test` (Runs `ember try:each` to test your addon against multiple Ember versions)
-* `ember test`
-* `ember test --server`
+```javascript
+let ENV = {
+    // ...
+    
+    materialize: {
+      embedIconFonts: true            // embed icon fonts, or link from online
+    }  
+    
+    // ...
+};
+```
 
-## Building
+## Next Steps
 
-* `ember build`
-
-For more information on using ember-cli, visit [https://ember-cli.com/](https://ember-cli.com/).
+See the [Wiki](https://github.com/onehilltech/ember-cli-mdl/wiki) for more information.
