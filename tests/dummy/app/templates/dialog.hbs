@@ -12,8 +12,9 @@
 
 {{#mdl-dialog show=confirm
               title="Are you sure?"
-              positiveClick=(action "agree")
-              onClose=(action "agree")}}
+              positive=(action "agree")
+              positiveText="Yes"
+              close=(action "agree")}}
   <p>Allowing us to collect data will let us get you the information you want faster.</p>
 {{/mdl-dialog}}
 
