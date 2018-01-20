@@ -57,8 +57,8 @@ export default Component.extend({
   _onKeyUp (ev) {
     if (ev.keyCode === 27) {
       Ember.run (() => {
-        this.sendAction ('close');
         this.set ('show', false);
+        this.sendAction ('closed');
       });
     }
   },
@@ -68,13 +68,25 @@ export default Component.extend({
     let result = true;
 
     if ($target.hasClass ('positive')) {
-      this.sendAction ('positive');
+      let positive = this.get ('positive');
+
+      if (positive) {
+        result = positive ();
+      }
     }
     else if ($target.hasClass ('negative')) {
-      this.sendAction ('negative');
+      let negativeClick = this.get ('negative');
+
+      if (negativeClick) {
+        result = negativeClick ();
+      }
     }
     else if ($target.hasClass ('neutral')) {
-      this.sendAction ('neutral');
+      let neutralClick = this.get ('neutral');
+
+      if (neutralClick) {
+        result = neutralClick ();
+      }
     }
     else {
       // We need to throw an error here.
@@ -87,11 +99,14 @@ export default Component.extend({
     if (result === undefined || result === null || result === true) {
       // The user did not pass back a value. If the return value is undefined,
       // then it is assumed the user wants the dialog to close.
-      this.sendAction ('close');
       this.set ('show', false);
     }
     else if ((result instanceof Ember.RSVP.Promise)) {
       result.then (this._handleResult.bind (this));
+    }
+    else if (result === true) {
+      this.set ('show', false);
+      this.sendAction ('closed');
     }
   }
 });
