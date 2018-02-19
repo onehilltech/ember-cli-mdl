@@ -96,15 +96,12 @@ export default Component.extend({
   },
 
   _handleResult (result) {
-    if (result === undefined || result === null || result === true) {
-      // The user did not pass back a value. If the return value is undefined,
-      // then it is assumed the user wants the dialog to close.
-      this.set ('show', false);
-    }
-    else if ((result instanceof Ember.RSVP.Promise)) {
+    if ((result instanceof Ember.RSVP.Promise)) {
       result.then (this._handleResult.bind (this));
     }
-    else if (result === true) {
+    else if (result === undefined || result === null || result) {
+      // The user did not pass back a value. If the return value is undefined,
+      // then it is assumed the user wants the dialog to close.
       this.set ('show', false);
       this.sendAction ('closed');
     }
