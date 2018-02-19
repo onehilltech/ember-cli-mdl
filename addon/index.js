@@ -1,4 +1,5 @@
 export {default as Route} from './-private/route';
+export {default as Controller} from './-private/controller';
 
 // Export the components. This allows third-party add-ons and application
 // components to extends the components.
@@ -45,6 +46,7 @@ import TableHeader from './components/mdl-table-header';
 import TableBody from './components/mdl-table-body';
 import TableCell from './components/mdl-table-cell';
 
+
 let MaterialComponent = {
   Badge,
 
@@ -88,5 +90,6 @@ let MaterialComponent = {
   TooltipSupport
 };
 
-export {MaterialComponent as Component};
-
+export {
+  MaterialComponent as Component
+}
