@@ -29,6 +29,9 @@ import Form from './components/mdl-form';
 import LinkComponent from './-private/link-component';
 import ListItemComponent from './components/mdl-list-item';
 
+import LayoutHeader from './components/mdl-layout-header';
+import LayoutHeaderRow from './components/mdl-layout-header-row';
+
 import NavigationComponent from './components/mdl-navigation';
 import NavigationLinkComponent from './components/mdl-navigation-link';
 
@@ -69,6 +72,9 @@ let MaterialComponent = {
 
   Dialog,
   Form,
+
+  LayoutHeader,
+  LayoutHeaderRow,
 
   ListItem: ListItemComponent,
   Link: LinkComponent,
