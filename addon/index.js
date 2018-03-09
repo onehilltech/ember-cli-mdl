@@ -12,6 +12,9 @@ import Button from './components/mdl-button';
 import FAB from './components/mdl-fab';
 import IconButton from './components/mdl-icon-button';
 
+import Grid from './components/mdl-grid';
+import GridCell from './components/mdl-cell';
+
 import CardComponent from './components/mdl-card';
 import CardActionComponent from './components/mdl-card-action';
 import CardActionsComponent from './components/mdl-card-actions';
@@ -72,6 +75,9 @@ let MaterialComponent = {
 
   Dialog,
   Form,
+
+  Grid,
+  GridCell,
 
   LayoutHeader,
   LayoutHeaderRow,
