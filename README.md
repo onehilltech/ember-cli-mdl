@@ -1,5 +1,7 @@
 # ember-cli-mdl
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/onehilltech/ember-cli-mdl.svg)](https://greenkeeper.io/)
+
 EmberJS add-on for [Material Design Lite](https://getmdl.io/)
 
 ## Installation
