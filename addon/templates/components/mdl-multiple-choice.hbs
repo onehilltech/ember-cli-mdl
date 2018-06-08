@@ -1,0 +1,4 @@
+{{#each options as |option index|}}
+  {{mdl-checkbox name=name value=option.value label=option.label click=(action "selected" index option.value)}}
+{{/each}}
+

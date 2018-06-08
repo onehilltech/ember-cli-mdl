@@ -1,0 +1,26 @@
+{{#mdl-layout fixedHeader=true}}
+  {{#mdl-layout-header}}
+    {{mdl-toolbar title="Multiple Choice" navigateUpTo="index"}}
+  {{/mdl-layout-header}}
+
+  {{#mdl-layout-content}}
+    <div style="padding: 32px">
+
+      <h4>Places Visited</h4>
+
+      <form>
+        {{mdl-multiple-choice name="visited" options=options value=value}}
+      </form>
+
+      <hr />
+
+      <p>Selected places:</p>
+
+      <ul>
+          {{#each value as |place|}}
+            <li>{{place}}</li>
+          {{/each}}
+      </ul>
+    </div>
+  {{/mdl-layout-content}}
+{{/mdl-layout}}
