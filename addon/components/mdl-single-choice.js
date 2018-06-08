@@ -14,7 +14,10 @@ export default Component.extend({
     const {name, value} = this.getProperties (['name', 'value']);
 
     if (Ember.isPresent (value)) {
-      // We need to check the element, and add the correct
+      // It's just simple to uncheck all the items.
+      Ember.$ (`[name=${name}]`).parent ().removeClass ('is-checked');
+
+      // Then, check the item that was selected.
       const $radio = Ember.$ (`[name=${name}][value=${value}]`);
       $radio.prop ('checked', true);
 
