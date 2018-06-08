@@ -37,6 +37,7 @@ Router.map(function() {
   this.route('example');
   this.route('slider');
   this.route('sliders');
+  this.route('single-choice');
 });
 
 export default Router;

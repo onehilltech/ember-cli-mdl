@@ -1,0 +1,3 @@
+{{#each options as |option|}}
+  <div>{{mdl-radio name=name label=option.label value=option.value checked=checked click=(action (mut value) value="target.value")}}</div>
+{{/each}}
