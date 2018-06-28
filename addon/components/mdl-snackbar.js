@@ -8,21 +8,21 @@ export default Component.extend({
 
   classNames: ['mdl-js-snackbar', 'mdl-snackbar'],
 
-  didUpdate () {
+  didRender () {
     this._super (...arguments);
 
-    let message = this.get ('message');
-    if (Ember.isNone (message)) { return; }
+    let {
+      message,
+      actionText,
+      timeout,
+      action
+    } = this.getProperties (['message', 'action', 'actionText', 'timeout']);
 
-    let data = {
-      message: message,
-      actionHandler: this.get ('action'),
-      actionText: this.get ('actionText'),
-      timeout: this.get ('timeout')
-    };
+    if (Ember.isNone (message)) {
+      return;
+    }
 
-    this.element.MaterialSnackbar.showSnackbar (data);
-
+    this.element.MaterialSnackbar.showSnackbar ({message, actionHandler: action, actionText, timeout });
     this.set ('message');
   }
 });
