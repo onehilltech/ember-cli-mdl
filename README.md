@@ -2,6 +2,10 @@
 
 EmberJS add-on for [Material Design Lite](https://getmdl.io/)
 
+## Deprecation Notice
+
+This library has been deprecated. We receommend you use [ember-cli-mdc](https://github.com/onehilltech/ember-cli-mdc).
+
 ## Installation
 
     ember install ember-cli-mdl
