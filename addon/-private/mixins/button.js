@@ -1,4 +1,5 @@
-import Ember from 'ember';
+import { computed } from '@ember/object';
+import Mixin from '@ember/object/mixin';
 import BehaviorMixin from './behavior';
 import RippleEffectMixin from './ripple-effect';
 
@@ -7,7 +8,7 @@ const colorMapping = {
   accent: 'mdl-button--accent'
 };
 
-export default Ember.Mixin.create (RippleEffectMixin, BehaviorMixin, {
+export default Mixin.create (RippleEffectMixin, BehaviorMixin, {
   tagName: 'button',
 
   classNames: ['mdl-button', 'mdl-js-button'],
@@ -22,7 +23,7 @@ export default Ember.Mixin.create (RippleEffectMixin, BehaviorMixin, {
 
   attributeBindings: ['value', 'type', 'disabled'],
 
-  colorClassName: Ember.computed ('color', function () {
+  colorClassName: computed ('color', function () {
     let color = this.get ('color');
     return colorMapping[color];
   }),

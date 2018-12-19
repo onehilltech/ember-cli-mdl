@@ -1,7 +1,8 @@
-import Ember from 'ember';
+import $ from 'jquery';
+import TextField from '@ember/component/text-field';
 import TextSupportMixin from '../-private/mixins/text-support';
 
-export default Ember.TextField.extend (TextSupportMixin, {
+export default TextField.extend (TextSupportMixin, {
   didInsertElement () {
     this._super (...arguments);
 
@@ -13,7 +14,7 @@ export default Ember.TextField.extend (TextSupportMixin, {
     let $wrapper = this.get ('$wrapper');
     $wrapper.addClass ('mdl-textfield--expandable');
 
-    let $expandableHolder = Ember.$('<div class="mdl-textfield__expandable-holder"></div>');
+    let $expandableHolder = $('<div class="mdl-textfield__expandable-holder"></div>');
 
     // Move the current children in the $wrapper, and move them to the
     // expandable holder element.
@@ -24,7 +25,7 @@ export default Ember.TextField.extend (TextSupportMixin, {
 
     // Now, add the outer label to the wrapper, and then append the holder
     // to the wrapper.
-    let $expandableHolderLabel = Ember.$(`<label class="mdl-button mdl-js-button mdl-button--icon" for="${this.elementId}"><i class="material-icons">${this.get ('expandableIcon')}</i></label>`);
+    let $expandableHolderLabel = $(`<label class="mdl-button mdl-js-button mdl-button--icon" for="${this.elementId}"><i class="material-icons">${this.get ('expandableIcon')}</i></label>`);
     $wrapper.append ($expandableHolderLabel);
     $wrapper.append ($expandableHolder);
   },

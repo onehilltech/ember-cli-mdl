@@ -1,10 +1,11 @@
-import Ember from 'ember';
+import $ from 'jquery';
+import Service from '@ember/service';
 
-export default Ember.Service.extend({
+export default Service.extend({
   init () {
     this._super (...arguments);
 
-    Ember.$(window).on ('resize', this.didResize.bind (this));
+    $(window).on ('resize', this.didResize.bind (this));
   },
 
   upgradeElement (el) {
@@ -16,6 +17,6 @@ export default Ember.Service.extend({
   },
 
   didResize () {
-    let width = Ember.$(window).width ();
+    let width = $(window).width ();
   }
 });

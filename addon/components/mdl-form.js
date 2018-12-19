@@ -1,7 +1,9 @@
-import Ember from 'ember';
+import { isPresent } from '@ember/utils';
+import { getOwner } from '@ember/application';
+import Component from '@ember/component';
 import layout from '../templates/components/mdl-form';
 
-export default Ember.Component.extend({
+export default Component.extend({
   layout,
 
   tagName: 'form',
@@ -19,7 +21,7 @@ export default Ember.Component.extend({
     event.preventDefault ();
 
     // Manually validate the input.
-    let views = Ember.getOwner (this).lookup ('-view-registry:main');
+    let views = getOwner (this).lookup ('-view-registry:main');
     let $inputs = this.$ ('.mdl-input');
 
     let valid = true;
@@ -28,7 +30,7 @@ export default Ember.Component.extend({
       let $input = $inputs[i];
       let mdlInput = views[$input.id];
 
-      if (Ember.isPresent (mdlInput)) {
+      if (isPresent (mdlInput)) {
         mdlInput.validateInput ();
         valid &= mdlInput.element.validity.valid;
       }

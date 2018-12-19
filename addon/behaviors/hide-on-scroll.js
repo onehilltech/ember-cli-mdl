@@ -1,5 +1,7 @@
+import { set } from '@ember/object';
+import { isPresent } from '@ember/utils';
+import $ from 'jquery';
 import Behavior from '../-private/behavior';
-import Ember from 'ember';
 
 export default Behavior.extend ({
   scrollThreshold: 32,
@@ -7,10 +9,10 @@ export default Behavior.extend ({
   didAttachToComponent () {
     this._super (...arguments);
 
-    let $content = Ember.$('.mdl-layout__content');
+    let $content = $('.mdl-layout__content');
 
-    if (Ember.isPresent ($content)) {
-      Ember.set (this, '$content', $content);
+    if (isPresent ($content)) {
+      set (this, '$content', $content);
       $content.on ('scroll', this.didScroll.bind (this));
     }
   },
@@ -20,7 +22,7 @@ export default Behavior.extend ({
 
     let $content = this.get ('$content');
 
-    if (Ember.isPresent ($content)) {
+    if (isPresent ($content)) {
       $content.off ('scroll', this.didScroll.bind (this));
     }
   },

@@ -1,6 +1,7 @@
+import { isPresent } from '@ember/utils';
+import { get } from '@ember/object';
 import Component from '../-private/component';
 import layout from '../templates/components/mdl-slider';
-import Ember from 'ember';
 
 export default Component.extend({
   layout,
@@ -21,9 +22,9 @@ export default Component.extend({
     this._super (...arguments);
 
     if (this.MaterialSlider) {
-      let value = Ember.get (this, 'attrs.value');
+      let value = get (this, 'attrs.value');
 
-      if (Ember.isPresent (value)) {
+      if (isPresent (value)) {
         this.MaterialSlider.change (value);
       }
     }

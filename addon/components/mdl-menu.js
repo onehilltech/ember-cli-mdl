@@ -1,4 +1,5 @@
-import Ember from 'ember';
+import { dasherize } from '@ember/string';
+import { isEmpty } from '@ember/utils';
 
 import Component from '../-private/component';
 import RippleEffectMixin from '../-private/mixins/ripple-effect';
@@ -21,7 +22,7 @@ export default Component.extend (RippleEffectMixin, {
     this._super (...arguments);
 
     let position = this.get ('position');
-    let positionClassName = Ember.isEmpty (position) ? null : `mdl-menu--${Ember.String.dasherize (position)}`;
+    let positionClassName = isEmpty (position) ? null : `mdl-menu--${dasherize (position)}`;
 
     this.set ('positionClassName', positionClassName);
   }

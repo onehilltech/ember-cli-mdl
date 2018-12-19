@@ -1,15 +1,16 @@
+import { isNone, isPresent } from '@ember/utils';
+import { computed } from '@ember/object';
 import Component from '../-private/component';
-import Ember from 'ember';
 import layout from '../templates/components/mdl-cell';
 
 function computeCellNClassName (scope, property, device) {
-  return Ember.computed (property, function () {
+  return computed (property, function () {
     let n = this.get (property);
-    if (Ember.isNone (n)) { return undefined; }
+    if (isNone (n)) { return undefined; }
 
     let className = `mdl-cell--${n}-${scope}`;
 
-    if (Ember.isPresent (device))
+    if (isPresent (device))
       className += `-${device}`;
 
     return className;
@@ -17,13 +18,13 @@ function computeCellNClassName (scope, property, device) {
 }
 
 function computeCellClassName (scope, property, device) {
-  return Ember.computed (property, function () {
+  return computed (property, function () {
     let value = this.get (property);
-    if (Ember.isNone (value)) { return undefined; }
+    if (isNone (value)) { return undefined; }
 
     let className = `mdl-cell--${scope}`;
 
-    if (Ember.isPresent (device))
+    if (isPresent (device))
       className += `-${device}`;
 
     return className;

@@ -1,4 +1,10 @@
-import Ember from 'ember';
+import { isArray } from '@ember/array';
+import { isEmpty, typeOf, isPresent } from '@ember/utils';
+import { computed } from '@ember/object';
+import { readOnly, not, equal } from '@ember/object/computed';
+import $ from 'jquery';
+import { inject as service } from '@ember/service';
+import Mixin from '@ember/object/mixin';
 import InputMixin from './input';
 
 const VALIDATION_ERROR_TYPE = [
@@ -13,8 +19,8 @@ const VALIDATION_ERROR_TYPE = [
   'typeMismatch',
 ];
 
-export default Ember.Mixin.create (InputMixin, {
-  mdl: Ember.inject.service (),
+export default Mixin.create (InputMixin, {
+  mdl: service (),
 
   classNames: ['mdl-textfield__input'],
 
@@ -31,8 +37,8 @@ export default Ember.Mixin.create (InputMixin, {
     // Insert the label for the input.
     let labelText = this.getWithDefault ('label', '');
 
-    let $label = Ember.$(`<label class="mdl-textfield__label" for="${this.elementId}">${labelText}</label>`);
-    let $error = Ember.$('<span class="mdl-textfield__error"></span>');
+    let $label = $(`<label class="mdl-textfield__label" for="${this.elementId}">${labelText}</label>`);
+    let $error = $('<span class="mdl-textfield__error"></span>');
 
     $label.insertAfter (this.$());
     $error.insertAfter ($label);
@@ -81,11 +87,11 @@ export default Ember.Mixin.create (InputMixin, {
     this.setProperties ({$wrapper: null, $label: null, $error: null});
   },
 
-  layoutElementId: Ember.computed.readOnly ('wrapperId'),
+  layoutElementId: readOnly ('wrapperId'),
 
-  tooltipElementId: Ember.computed.readOnly ('wrapperId'),
+  tooltipElementId: readOnly ('wrapperId'),
 
-  wrapperId: Ember.computed (function () {
+  wrapperId: computed (function () {
     return `text-wrapper__${this.elementId}`;
   }),
 
@@ -96,8 +102,8 @@ export default Ember.Mixin.create (InputMixin, {
     this.set ('_initValue', this.get ('value'));
   },
 
-  isDirty: Ember.computed.not ('isClean'),
-  isClean: Ember.computed.equal ('_initValue', 'value'),
+  isDirty: not ('isClean'),
+  isClean: equal ('_initValue', 'value'),
 
   _toggleWrapperClassNames () {
     let $wrapper = this.get ('$wrapper');
@@ -114,7 +120,7 @@ export default Ember.Mixin.create (InputMixin, {
   setErrorMessage (message) {
     let $wrapper = this.get ('$wrapper');
 
-    if (Ember.isEmpty (message)) {
+    if (isEmpty (message)) {
       // Make sure there is not custom error set for the input. This also
       // includes removing the invalid class from the wrapper.
       if (this.element.validity.customError) {
@@ -125,7 +131,7 @@ export default Ember.Mixin.create (InputMixin, {
       }
     }
     else {
-      let typeOf = Ember.typeOf (message);
+      let typeOf = typeOf (message);
 
       if (typeOf === 'string') {
         // Update the custom error message.
@@ -135,7 +141,7 @@ export default Ember.Mixin.create (InputMixin, {
         // Make sure the wrapper class has the invalid class.
         $wrapper.toggleClass ('is-invalid', true);
       }
-      else if (Ember.isArray (message)) {
+      else if (isArray (message)) {
         this.setErrorMessage (message[0].message);
       }
       else if (typeOf === 'object') {
@@ -146,7 +152,7 @@ export default Ember.Mixin.create (InputMixin, {
 
   _showErrorMessage (message) {
     this.get ('$error').text (message);
-    this.get ('$wrapper').toggleClass ('is-invalid', !Ember.isEmpty (message));
+    this.get ('$wrapper').toggleClass ('is-invalid', !isEmpty (message));
   },
 
   validateInput () {
@@ -157,7 +163,7 @@ export default Ember.Mixin.create (InputMixin, {
 
     let customError = this.get ('customError');
 
-    if (Ember.isPresent (customError)) {
+    if (isPresent (customError)) {
       // We are going to attempt to show a custom error message. This is only
       // possible if we have defined a error message that corresponds to the
       // failed validation type.
@@ -167,7 +173,7 @@ export default Ember.Mixin.create (InputMixin, {
         const failed = this.element.validity[reason];
 
         if (failed) {
-          if (Ember.isPresent (customError[reason])) {
+          if (isPresent (customError[reason])) {
             this._showErrorMessage (customError[reason]);
           }
           else {

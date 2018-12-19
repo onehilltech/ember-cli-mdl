@@ -1,25 +1,29 @@
-import Ember from 'ember';
+import $ from 'jquery';
+import { readOnly } from '@ember/object/computed';
+import { computed } from '@ember/object';
+import { inject as service } from '@ember/service';
+import Component from '@ember/component';
 import TooltipSupport from '../-private/mixins/tooltip-support';
 import LayoutSupport from '../-private/mixins/layout-support';
 
 import layout from '../templates/components/mdl-selectfield';
 
-export default Ember.Component.extend (LayoutSupport, TooltipSupport, {
+export default Component.extend (LayoutSupport, TooltipSupport, {
   layout,
 
-  mdl: Ember.inject.service (),
+  mdl: service (),
 
   tagName: 'select',
 
   classNames: ['mdl-selectfield__select'],
 
-  wrapperId: Ember.computed (function () {
+  wrapperId: computed (function () {
     return this.$wrapper[0].id;
   }).readOnly (),
 
-  layoutElementId: Ember.computed.readOnly ('wrapperId'),
+  layoutElementId: readOnly ('wrapperId'),
 
-  tooltipElementId: Ember.computed.readOnly ('wrapperId'),
+  tooltipElementId: readOnly ('wrapperId'),
 
   didInsertElement () {
     this._super (...arguments);
@@ -31,10 +35,10 @@ export default Ember.Component.extend (LayoutSupport, TooltipSupport, {
     $wrapper.toggleClass ('mdl-selectfield--floating-label', this.getWithDefault ('floatingLabel', false));
 
     // Insert the label and error tags.
-    let $label = Ember.$(`<label class="mdl-selectfield__label" for="${this.elementId}">${this.get ('label')}</label>`);
+    let $label = $(`<label class="mdl-selectfield__label" for="${this.elementId}">${this.get ('label')}</label>`);
     $label.insertAfter (this.$());
 
-    let $error = Ember.$('<span class="mdl-selectfield__error"></span>');
+    let $error = $('<span class="mdl-selectfield__error"></span>');
     $error.insertAfter ($label);
 
     this.setProperties ({ $wrapper: $wrapper, $label: $label, $error: $error });

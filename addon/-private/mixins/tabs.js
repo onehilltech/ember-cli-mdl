@@ -1,7 +1,10 @@
-import Ember from 'ember';
+import $ from 'jquery';
+import { isNone } from '@ember/utils';
+import { computed } from '@ember/object';
+import Mixin from '@ember/object/mixin';
 
-export default Ember.Mixin.create ({
-  _activeTabSelector: Ember.computed ('_tabsSelector', function () {
+export default Mixin.create ({
+  _activeTabSelector: computed ('_tabsSelector', function () {
     return `${this.get ('_tabsSelector')}.is-active`;
   }),
 
@@ -31,7 +34,7 @@ export default Ember.Mixin.create ({
     this._cacheTabsAndPanels ();
 
     let activeTab = this.get ('_activeTab');
-    let activeTabIndex = Ember.isNone (activeTab) ? 0 : this.get ('$tabs').index (activeTab);
+    let activeTabIndex = isNone (activeTab) ? 0 : this.get ('$tabs').index (activeTab);
 
     if (activeTabIndex === -1)
       activeTabIndex = 0;
@@ -58,8 +61,8 @@ export default Ember.Mixin.create ({
 
       // Mark the tab and panel as active, or inactive.
       let isActive = activeTab === i;
-      Ember.$(tab).toggleClass ('is-active', isActive);
-      Ember.$(panel).toggleClass ('is-active', isActive);
+      $(tab).toggleClass ('is-active', isActive);
+      $(panel).toggleClass ('is-active', isActive);
     }
   }
 });

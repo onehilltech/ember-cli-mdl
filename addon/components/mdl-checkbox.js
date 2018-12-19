@@ -1,7 +1,7 @@
-import Ember from 'ember';
+import Checkbox from '@ember/component/checkbox';
 import ToggleSupportMixin from '../-private/mixins/toggle-support';
 
-export default Ember.Checkbox.extend (ToggleSupportMixin, {
+export default Checkbox.extend (ToggleSupportMixin, {
   classNames: ['mdl-checkbox__input'],
 
   labelClassName: ['mdl-checkbox__label'],

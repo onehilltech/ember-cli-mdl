@@ -1,4 +1,4 @@
-import Ember from 'ember';
+import { isNone } from '@ember/utils';
 import Component from '../-private/component';
 
 import layout from '../templates/components/mdl-snackbar';
@@ -18,7 +18,7 @@ export default Component.extend({
       action
     } = this.getProperties (['message', 'action', 'actionText', 'timeout']);
 
-    if (Ember.isNone (message)) {
+    if (isNone (message)) {
       return;
     }
 

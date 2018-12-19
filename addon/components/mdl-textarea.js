@@ -1,6 +1,6 @@
-import Ember from 'ember';
+import TextArea from '@ember/component/text-area';
 import TextSupportMixin from '../-private/mixins/text-support';
 
-export default Ember.TextArea.extend (TextSupportMixin, {
+export default TextArea.extend (TextSupportMixin, {
 
 });

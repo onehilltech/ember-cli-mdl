@@ -1,10 +1,15 @@
-import Ember from 'ember';
+import { isNone } from '@ember/utils';
+import { computed } from '@ember/object';
+import { readOnly } from '@ember/object/computed';
+import $ from 'jquery';
+import { inject as service } from '@ember/service';
+import Mixin from '@ember/object/mixin';
 
 import TooltipSupport from './tooltip-support';
 import LayoutSupport from './layout-support';
 
-export default Ember.Mixin.create (LayoutSupport, TooltipSupport, {
-  mdl: Ember.inject.service (),
+export default Mixin.create (LayoutSupport, TooltipSupport, {
+  mdl: service (),
 
   concatenatedProperties: ['wrapperClassNames', 'labelClassName'],
 
@@ -16,7 +21,7 @@ export default Ember.Mixin.create (LayoutSupport, TooltipSupport, {
     let $wrapper = this.$().parent ();
 
     // Insert the radio label after the input tag (i.e., this element).
-    let $label = Ember.$(`<span class="${this.get ('labelClassName').join (' ')}"></span>`);
+    let $label = $(`<span class="${this.get ('labelClassName').join (' ')}"></span>`);
     $label.insertAfter (this.$());
 
     this.setProperties ({$wrapper: $wrapper, $label: $label});
@@ -39,11 +44,11 @@ export default Ember.Mixin.create (LayoutSupport, TooltipSupport, {
     this.$().unwrap ();
   },
 
-  layoutElementId: Ember.computed.readOnly ('wrapperId'),
+  layoutElementId: readOnly ('wrapperId'),
 
-  tooltipElementId: Ember.computed.readOnly ('wrapperId'),
+  tooltipElementId: readOnly ('wrapperId'),
 
-  wrapperId: Ember.computed (function () {
+  wrapperId: computed (function () {
     return `toggle-wrapper__${this.elementId}`;
   }),
 
@@ -57,7 +62,7 @@ export default Ember.Mixin.create (LayoutSupport, TooltipSupport, {
   _setLabel () {
     let label = this.get ('label');
 
-    if (Ember.isNone (label)) {
+    if (isNone (label)) {
       label = '';
     }
 

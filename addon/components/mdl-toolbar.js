@@ -1,4 +1,6 @@
-import Ember from 'ember';
+import { getOwner } from '@ember/application';
+import { computed } from '@ember/object';
+import $ from 'jquery';
 import LayoutHeaderRowComponent from './mdl-layout-header-row';
 
 import layout from '../templates/components/mdl-toolbar';
@@ -16,7 +18,7 @@ export default LayoutHeaderRowComponent.extend({
 
     if (navigateUpTo) {
       if (!this.$navigateUpTo) {
-        let $navigateUpTo = Ember.$('<div class="mdl-layout-icon"><i class="material-icons">arrow_back</i></div>');
+        let $navigateUpTo = $('<div class="mdl-layout-icon"><i class="material-icons">arrow_back</i></div>');
 
         $navigateUpTo.insertBefore (this.$());
         $navigateUpTo.on ('click', this.navigateUp.bind (this));
@@ -49,7 +51,7 @@ export default LayoutHeaderRowComponent.extend({
     router.replaceWith.apply (router, args);
   },
 
-  router: Ember.computed (function() {
-    return Ember.getOwner (this).lookup ('router:main');
+  router: computed (function() {
+    return getOwner (this).lookup ('router:main');
   }).readOnly ()
 });

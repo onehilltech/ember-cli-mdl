@@ -1,6 +1,7 @@
+import { A } from '@ember/array';
+import { isEmpty, isNone } from '@ember/utils';
 import Component from '@ember/component';
 import layout from '../templates/components/mdl-multiple-choice';
-import Ember from 'ember';
 
 export default Component.extend({
   layout,
@@ -13,11 +14,11 @@ export default Component.extend({
     // Let's initialize the check list.
     let value = this.get ('value');
 
-    if (Ember.isEmpty (value)) {
+    if (isEmpty (value)) {
       return;
     }
 
-    let options = Ember.A (this.get ('options'));
+    let options = A (this.get ('options'));
 
     value.forEach (value => {
       // Locate the options that matches the value.
@@ -39,7 +40,7 @@ export default Component.extend({
     selected (index) {
       let {options, value} = this.getProperties (['options', 'value']);
 
-      if (Ember.isNone (value)) {
+      if (isNone (value)) {
         return;
       }
 

@@ -1,21 +1,26 @@
-import Ember from 'ember';
+import { getOwner } from '@ember/application';
+import $ from 'jquery';
+import { on } from '@ember/object/evented';
+import { dasherize } from '@ember/string';
+import { computed } from '@ember/object';
+import Route from '@ember/routing/route';
 
-export default Ember.Route.extend ({
-  classNameForRoute: Ember.computed ('routeName', function () {
-    let className = Ember.String.dasherize (this.get ('routeName')).replace (/[.]/g, '-');
+export default Route.extend ({
+  classNameForRoute: computed ('routeName', function () {
+    let className = dasherize (this.get ('routeName')).replace (/[.]/g, '-');
     return `mdl-route__${className}`;
   }),
 
-  addClass: Ember.on ('activate', function () {
+  addClass: on ('activate', function () {
     // Add the class name for this route so we can add styles.
     let classNameForRoute = this.get ('classNameForRoute');
-    Ember.$('body').addClass (classNameForRoute);
+    $('body').addClass (classNameForRoute);
   }),
 
-  removeClass: Ember.on ('deactivate', function () {
+  removeClass: on ('deactivate', function () {
     // Remove the class name for this route so we can remove styles.
     let classNameForRoute = this.get ('classNameForRoute');
-    Ember.$('body').removeClass (classNameForRoute);
+    $('body').removeClass (classNameForRoute);
   }),
 
   /**
@@ -25,10 +30,10 @@ export default Ember.Route.extend ({
    *
    * @param transition
    */
-  forceHideDialog: Ember.on ('willTransition', function (transition) {
+  forceHideDialog: on ('willTransition', function (transition) {
     let classNameForRoute = this.get ('classNameForRoute');
-    let $dialogs = Ember.$ (`.${classNameForRoute}`).find ('.mdl-dialog');
-    let views = Ember.getOwner (this).lookup ('-view-registry:main');
+    let $dialogs = $ (`.${classNameForRoute}`).find ('.mdl-dialog');
+    let views = getOwner (this).lookup ('-view-registry:main');
 
     $dialogs.each ((i, dialog) => {
       let mdlDialog = views[dialog.id];

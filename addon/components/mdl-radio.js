@@ -1,8 +1,8 @@
-import Ember from 'ember';
+import Component from '@ember/component';
 import layout from '../templates/components/mdl-radio';
 import ToggleSupportMixin from '../-private/mixins/toggle-support';
 
-export default Ember.Component.extend (ToggleSupportMixin, {
+export default Component.extend (ToggleSupportMixin, {
   layout,
 
   tagName: 'input',

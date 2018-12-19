@@ -1,13 +1,15 @@
-import Ember from 'ember';
+import { isEmpty } from '@ember/utils';
+import { computed } from '@ember/object';
+import Controller from '@ember/controller';
 
-export default Ember.Controller.extend({
+export default Controller.extend({
   customError: {
     valueMissing: 'You are missing a value!'
   },
 
-  title: Ember.computed ('search', function () {
+  title: computed ('search', function () {
     let search = this.get ('search');
 
-    return Ember.isEmpty (search) ? 'Find a church' : null;
+    return isEmpty (search) ? 'Find a church' : null;
   })
 });

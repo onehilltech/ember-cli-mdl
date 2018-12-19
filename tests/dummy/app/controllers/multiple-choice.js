@@ -1,5 +1,5 @@
+import { A } from '@ember/array';
 import Controller from '@ember/controller';
-import Ember from 'ember';
 
 export default Controller.extend({
   options: [
@@ -11,6 +11,6 @@ export default Controller.extend({
 
   init () {
     this._super (...arguments);
-    this.set ('value', Ember.A (['ohio']));
+    this.set ('value', A (['ohio']));
   }
 });

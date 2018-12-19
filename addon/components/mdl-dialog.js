@@ -1,7 +1,12 @@
 /* global dialogPolyfill */
 
+import { Promise } from 'rsvp';
+
+import { run } from '@ember/runloop';
+import $ from 'jquery';
+import { or } from '@ember/object/computed';
+
 import Component from '../-private/component';
-import Ember from 'ember';
 
 import layout from '../templates/components/mdl-dialog';
 
@@ -12,13 +17,13 @@ export default Component.extend({
 
   classNames: ['mdl-dialog'],
 
-  hasPositiveButton: Ember.computed.or ('positive', 'positiveText'),
+  hasPositiveButton: or ('positive', 'positiveText'),
 
-  hasNeutralButton: Ember.computed.or ('neutral', 'neutralText'),
+  hasNeutralButton: or ('neutral', 'neutralText'),
 
-  hasNegativeButton: Ember.computed.or ('negative', 'negativeText'),
+  hasNegativeButton: or ('negative', 'negativeText'),
 
-  hasButtons: Ember.computed.or ('hasNegativeButton', 'hasPositiveButton', 'hasNeutralButton'),
+  hasButtons: or ('hasNegativeButton', 'hasPositiveButton', 'hasNeutralButton'),
 
   didInsertElement () {
     this._super (...arguments);
@@ -42,7 +47,7 @@ export default Component.extend({
 
         // Listen for the ESC button since there is no way to register
         // for when the dialog is closed.
-        Ember.$(document).on ('keyup', this._onKeyUp.bind (this));
+        $(document).on ('keyup', this._onKeyUp.bind (this));
       }
     }
     else if (this.element.open) {
@@ -50,13 +55,13 @@ export default Component.extend({
     }
 
     if (!show) {
-      Ember.$(document).off ('keyup');
+      $(document).off ('keyup');
     }
   },
 
   _onKeyUp (ev) {
     if (ev.keyCode === 27) {
-      Ember.run (() => {
+      run (() => {
         this.set ('show', false);
         this.sendAction ('closed');
       });
@@ -64,7 +69,7 @@ export default Component.extend({
   },
 
   onButtonClick (ev) {
-    let $target = Ember.$(ev.target);
+    let $target = $(ev.target);
     let result = true;
 
     if ($target.hasClass ('positive')) {
@@ -96,7 +101,7 @@ export default Component.extend({
   },
 
   _handleResult (result) {
-    if ((result instanceof Ember.RSVP.Promise)) {
+    if ((result instanceof Promise)) {
       result.then (this._handleResult.bind (this));
     }
     else if (result === undefined || result === null || result) {

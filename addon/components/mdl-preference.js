@@ -1,4 +1,4 @@
-import Ember from 'ember';
+import { isPresent } from '@ember/utils';
 import ListItemComponent from './mdl-list-item';
 import layout from '../templates/components/mdl-preference';
 
@@ -19,7 +19,7 @@ export default ListItemComponent.extend({
 
     let subtitle = this.get ('subtitle');
 
-    if (Ember.isPresent (subtitle)) {
+    if (isPresent (subtitle)) {
       this.set ('lines', 2);
     }
   }

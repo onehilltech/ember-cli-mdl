@@ -1,4 +1,4 @@
-import Ember from 'ember';
+import { computed } from '@ember/object';
 
 import LinkComponent from '../-private/link-component';
 import ButtonMixin from '../-private/mixins/button';
@@ -12,7 +12,7 @@ const LinkIconButton = LinkComponent.extend (ButtonMixin, {
 
   classNames: ['mdl-button--icon'],
 
-  icon: Ember.computed ('params.[]', function () {
+  icon: computed ('params.[]', function () {
     return this.get ('params')[0];
   })
 });

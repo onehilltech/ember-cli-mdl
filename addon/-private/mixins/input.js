@@ -1,9 +1,10 @@
-import Ember from 'ember';
+import { run } from '@ember/runloop';
+import Mixin from '@ember/object/mixin';
 
 import TooltipSupport from './tooltip-support';
 import LayoutSupport from './layout-support';
 
-export default Ember.Mixin.create (LayoutSupport, TooltipSupport, {
+export default Mixin.create (LayoutSupport, TooltipSupport, {
   classNames: ['mdl-input'],
 
   didInsertElement () {
@@ -23,7 +24,7 @@ export default Ember.Mixin.create (LayoutSupport, TooltipSupport, {
       this.set ('errorMessage');
 
       // Validate the input.
-      Ember.run (function () {
+      run (function () {
         this.validateInput ();
       }.bind (this));
     }

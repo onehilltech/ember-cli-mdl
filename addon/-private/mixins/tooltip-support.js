@@ -1,21 +1,25 @@
-import Ember from 'ember';
+import $ from 'jquery';
+import { isPresent } from '@ember/utils';
+import { on } from '@ember/object/evented';
+import { computed, get } from '@ember/object';
+import Mixin from '@ember/object/mixin';
 
-export default Ember.Mixin.create ({
-  layoutElementId: Ember.computed (function () {
+export default Mixin.create ({
+  layoutElementId: computed (function () {
     return this.elementId;
   }),
 
-  tooltipElementId: Ember.computed (function () {
+  tooltipElementId: computed (function () {
     return this.elementId;
   }),
 
-  _insertTooltipElement: Ember.on ('didRender', function () {
+  _insertTooltipElement: on ('didRender', function () {
     let {tooltip, _oldTooltip} = this.getProperties (['tooltip', '_oldTooltip']);
 
     // This first check focuses on the existence of the tooltip element in
     // the DOM model.
     if (tooltip !== _oldTooltip) {
-      if (Ember.isPresent (tooltip)) {
+      if (isPresent (tooltip)) {
         // Make sure the tooltip is at least present in the DOM model.
         let $tooltip = this._getTooltipElement ();
         $tooltip.text (tooltip);
@@ -33,7 +37,7 @@ export default Ember.Mixin.create ({
     }
   }),
 
-  _destroyTooltipElement: Ember.on ('willDestroyElement', function () {
+  _destroyTooltipElement: on ('willDestroyElement', function () {
     if (this.$tooltip) {
       this._removeTooltipElement ();
     }
@@ -53,10 +57,10 @@ export default Ember.Mixin.create ({
     }
 
     // Insert the tooltip, and save the tooltip object for later.
-    let tooltipElementId = Ember.get (this, 'tooltipElementId');
-    let $tooltip = Ember.$(`<div class="mdl-tooltip" for="${tooltipElementId}"></div>`);
+    let tooltipElementId = get (this, 'tooltipElementId');
+    let $tooltip = $(`<div class="mdl-tooltip" for="${tooltipElementId}"></div>`);
 
-    let $tooltipElement = Ember.$(`#${tooltipElementId}`);
+    let $tooltipElement = $(`#${tooltipElementId}`);
     $tooltip.insertAfter ($tooltipElement);
 
     this.$tooltip = $tooltip;
@@ -74,11 +78,11 @@ export default Ember.Mixin.create ({
       // Remove the old position, if present, and replace it with the new
       // position, if present.
 
-      if (Ember.isPresent (_oldTooltipPosition)) {
+      if (isPresent (_oldTooltipPosition)) {
         this.$tooltip.removeClass (`mdl-tooltip--${_oldTooltipPosition}`);
       }
 
-      if (Ember.isPresent (tooltipPosition)) {
+      if (isPresent (tooltipPosition)) {
         this.$tooltip.addClass (`mdl-tooltip--${tooltipPosition}`);
       }
 

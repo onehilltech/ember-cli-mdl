@@ -1,4 +1,4 @@
-import Ember from 'ember';
+import { computed } from '@ember/object';
 import Component from '@ember/component';
 import layout from '../templates/components/mdl-simple-menu';
 
@@ -9,7 +9,7 @@ export default Component.extend({
 
   menuIcon: 'more_vert',
 
-  menuId: Ember.computed (function () {
+  menuId: computed (function () {
     return `mdl-simple-menu__${this.elementId}`;
   })
 });

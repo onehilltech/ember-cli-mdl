@@ -1,7 +1,8 @@
-import Ember from 'ember';
+import { getOwner } from '@ember/application';
+import Mixin from '@ember/object/mixin';
 
-export default Ember.Mixin.create ({
+export default Mixin.create ({
   lookupComponent (id) {
-    return Ember.getOwner (this).lookup ('-view-registry:main') [id];
+    return getOwner (this).lookup ('-view-registry:main') [id];
   }
 });

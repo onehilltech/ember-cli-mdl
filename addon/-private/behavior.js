@@ -1,21 +1,22 @@
-import Ember from 'ember';
+import { isNone } from '@ember/utils';
+import EmberObject, { computed } from '@ember/object';
 
 /**
  * Base class for all material design lite components. This class ensures that elements
  * dynamically added to the application are upgraded.
  */
-export default Ember.Object.extend ({
+export default EmberObject.extend ({
   _component: null,
 
-  component: Ember.computed ({
+  component: computed ({
     set (key, value) {
-      if (Ember.isNone (value)) {
+      if (isNone (value)) {
         this.willDetachFromComponent ();
       }
 
       this._component = value;
 
-      if (!Ember.isNone (value)) {
+      if (!isNone (value)) {
         this.didAttachToComponent ();
       }
 

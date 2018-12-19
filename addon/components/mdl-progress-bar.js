@@ -1,4 +1,4 @@
-import Ember from 'ember';
+import { isPresent } from '@ember/utils';
 import Component from '../-private/component';
 
 import layout from '../templates/components/mdl-progress-bar';
@@ -24,7 +24,7 @@ export default Component.extend({
     // Set the buffer value, if present.
     let buffer = this.get ('buffer');
 
-    if (Ember.isPresent (buffer)) {
+    if (isPresent (buffer)) {
       this.element.MaterialProgress.setBuffer (buffer);
       this.set ('_lastBuffer', buffer);
     }
@@ -43,7 +43,7 @@ export default Component.extend({
 
     let buffer = this.get ('buffer');
 
-    if (Ember.isPresent (buffer)) {
+    if (isPresent (buffer)) {
       this.element.MaterialProgress.setBuffer (buffer);
     }
     else {
