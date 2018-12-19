@@ -2,6 +2,6 @@
   <option value=""></option>
 {{/unless}}
 
-{{#each options as |option|}}
-  <option value={{option.value}} selected={{option.selected}} disabled={{option.disabled}} label={{option.label}}>{{option.text}}</option>
+{{#each options as |opt|}}
+  <option value={{opt.value}} selected={{opt.selected}} disabled={{opt.disabled}} label={{opt.label}}>{{opt.text}}</option>
 {{/each}}

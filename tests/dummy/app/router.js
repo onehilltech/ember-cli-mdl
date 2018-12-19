@@ -39,6 +39,8 @@ Router.map(function() {
   this.route('sliders');
   this.route('single-choice');
   this.route('multiple-choice');
+
+  this.route('selectfield');
 });
 
 export default Router;
