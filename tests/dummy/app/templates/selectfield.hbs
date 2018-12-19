@@ -6,7 +6,11 @@
   {{#mdl-layout-content}}
     <div style="padding: 16px">
       <p>
-        {{mdl-selectfield label="Classification" floatingLabel=true options=classifications value=classification}}
+        {{mdl-selectfield label="Classification"
+                          floatingLabel=true
+                          options=classifications
+                          value=classification
+                          change=(action (mut classification) value="target.value")}}
       </p>
 
       <p>
